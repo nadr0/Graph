@@ -1,14 +1,23 @@
 var graphStructure = {
    
 	"a":{
-		"edgelist":["b","c"]
+		"edgelist":{
+			"c":false,
+			"b":true,
+			}
 	},
 
 	"b":{
-		"edgelist":["a","c"]
+		"edgelist":{
+			"a":true,
+			"c":true,
+			}
 	},
    
 	"c":{
-		"edgelist":["a","b"]
+		"edgelist":{
+			"a":false,
+			"b":true,
+			}
 	},
 };
