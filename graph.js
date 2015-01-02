@@ -80,6 +80,4 @@ var Graph = Class.extend({
         return vertices;
     }
 
-
-
 });

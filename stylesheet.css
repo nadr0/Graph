@@ -1,0 +1,58 @@
+/*@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400);*/
+
+.vertex{
+	position: relative;
+	width: 50px;
+	height: 50px;
+	top: 0px;
+	left: 0px;
+	border-radius: 50%;
+	border: 4px solid;
+	text-align: center;
+	line-height: 45px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+	color: white;
+}
+.edge{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 10px;
+	background-color: black;
+}
+/*
+	BG:Turquoise - #1abc9c
+	B:Green Sea - #16a085
+	
+	Emerald - #2ecc71
+	Nephritis - #27ae60
+
+	Peter River - #3498db
+	Belize Hole - #2980b9
+
+	Amethyst - #9b59b6
+	Wisteria - #8e44ad
+
+	Wet Asphalt - #34495e
+	Midnight Blue - #2c3e50
+
+	Sun Flower - #f1c40f
+	Orange - #f39c12
+	
+	Carrot - #e67e22
+	Pumpkin - #d35400
+
+	Alizarin - #e74c3c
+	Pomegranate - #c0392b
+
+	Clouds - #ecf0f1
+	Silver - #bdc3c7
+
+	Concrete - #95a5a6
+	Asbestos - #7f8c8d
+
+*/

@@ -3,17 +3,21 @@
     <script src="class.js"></script>
     <script src="storage.js"></script>
     <script src="graph.js"></script>
+    <script src="draw.js"></script>
 </head>
 
 
 
 <body style="margin:0; padding:0;">
 
+	<div id="myEdge" class="edge"></div> 
+
 	<script>
 	var myGraph = new Graph(graphStructure);
 	myGraph.insertVertex("d");
 	myGraph.insertEdge("d","c");
-	myGraph.deleteVertex("a");
+
+	createHTMLGraph(myGraph);
 	</script>
 
 

@@ -21,3 +21,19 @@ var graphStructure = {
 			}
 	},
 };
+
+/**
+ * Stores the graph data in local storage
+ * @param {graph} graph
+ */
+function storeData(graph)
+{
+	localStorage.setItem('graph', JSON.stringify(graph));
+	var retrievedObject = localStorage.getItem('graph');
+}
+/**
+ * Remove stored graph data
+ */
+function removeStoredData(){
+	localStorage.removeItem('graph');
+}
