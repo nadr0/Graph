@@ -1,4 +1,10 @@
-/*@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400);*/
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400);
+
+body{
+	margin:0; 
+	padding:0;
+	background-color: #bdc3c7;
+}
 
 .vertex{
 	position: absolute;
@@ -18,12 +24,55 @@
 	color: white;
 }
 .edge{
-	stroke: blue;
+	stroke: #141414;
 	stroke-width:2;
 	position:absolute;
 	background-color: rgba(255, 255, 255, 0.0);
 }
 
+#ui{
+	position: absolute;
+	width: 225px;
+	height: 350px;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 5%;
+	display: block;
+	padding-top: 25px;
+}
+
+.inputFieldDiv{
+	position: relative;
+	width: 100px;
+	height:  35px;
+	border-radius: 6px;
+	border: 2px solid;
+	border-color: #bdc3c7;
+	left:  100px;
+	margin-top: 15px;
+}
+
+.inputField{
+	position: relative;
+	width: 100px;
+	height:  35px;
+	background-color: #ecf0f1;
+	border: 0px;
+	outline: none;
+	padding-left: 25px;
+	border-radius: 3px;
+	border: 1px solid;
+	border-color: #bdc3c7;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+}
+
+.text{
+	position: relative;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+	color : #ecf0f1;
+	left: 100px;
+}
 /*
 	BG:Turquoise - #1abc9c
 	B:Green Sea - #16a085
@@ -55,4 +104,3 @@
 	Concrete - #95a5a6
 	Asbestos - #7f8c8d
 
-*/

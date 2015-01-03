@@ -3,7 +3,7 @@
  * @param {event} event
  * @param {div} div
  */
-function dragDiv(event, div){
+function dragVertexDiv(event, div){
   // Drag set to false
   var drag = false;
   var angle = 0;
@@ -35,6 +35,38 @@ function dragDiv(event, div){
   }, false);
 };
 
+function dragDiv(event, div){
+  // Drag set to false
+  var drag = false;
+  var angle = 0;
+  // Mouse down event listener
+  div.addEventListener("mousedown", function( event ) {   
+    // If mouse is down, drag is set to true
+    drag = true;
+    // Gets local of the div
+    var top = event.clientY - div.style.top;
+    var left = event.clientX - div.style.left;
+
+    // Adds mouse move event listener to the body
+    document.body.addEventListener("mousemove", function( event ) { 
+      // If mouse is down
+      if(drag){
+        // Move the div with mouse
+        div.style.top = event.clientY - top;
+        div.style.left = event.clientX - left;
+      }
+    }, false);
+    // Add mouse up event listener
+    div.addEventListener("mouseup", function( event ) {   
+      // If mouse is released, drag is set to false
+      drag = false;
+    }, false);
+
+
+  }, false);
+};
+
+
 // http://stackoverflow.com/questions/814564/inserting-html-elements-with-javascript
 function create(htmlStr) {
   var frag = document.createDocumentFragment(),
@@ -54,22 +86,23 @@ function createHTMLGraph(graph){
   // Goes through each vertex in the JSON 
   for (var vertex in graph.data)
   { 
-    var backgroundColors = ["","#1abc9c","#2ecc71","#3498db","#9b59b6","#34495e","#f1c40f","#e67e22","#e74c3c","#ecf0f1","#95a5a6"];
-    var borderColors = ["","#16a085","#27ae60","#2980b9","#8e44ad","#2c3e50","#f39c12","#d35400","#c0392b","#bdc3c7","#7f8c8d"];
+    var backgroundColors = ["","#1abc9c","#2ecc71","#3498db","#9b59b6","#34495e","#f1c40f","#e67e22","#e74c3c","#95a5a6"];
+    var borderColors = ["","#16a085","#27ae60","#2980b9","#8e44ad","#2c3e50","#f39c12","#d35400","#c0392b","#7f8c8d"];
     // Create a fragment for the new div to add to the body
     var fragment = create('<div id="'+vertex+'"class="vertex">'+vertex+'</div>');    
     // Insert the fragment to the body
     document.body.insertBefore(fragment,document.body.childNodes[0]);
 
     // Choose random color index
-    var randomColorIndex = Math.floor((Math.random() * 10) + 1);
+    var randomColorIndex = Math.floor((Math.random() * 9) + 1);
     // Set the border color
     document.body.childNodes[0].style.borderColor = borderColors[randomColorIndex];
     // Set the background color
     document.body.childNodes[0].style.backgroundColor = backgroundColors[randomColorIndex];
     // Make the newly added div to be draggable
-    dragDiv(event,document.body.childNodes[0]);
+    dragVertexDiv(event,document.body.childNodes[0]);
   }
+  createEdges(graph);
 }
 
 function createEdges(graph){
@@ -215,7 +248,6 @@ function createEdge(v,u){
       y2 = 0;
     }
     
-    // SVG Draw Line x1="0" y1="100" x2="200" y2="0" 
     var line = '<svg class="edge"> <line id="'+edgeLabel+'" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"  /> </svg>'
     var fragment = create(line);    
     document.body.insertBefore(fragment,document.body.childNodes[0]);

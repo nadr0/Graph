@@ -8,15 +8,37 @@
 
 
 
-<body style="margin:0; padding:0;">
+<body>
+
+	<div id="ui">
+		<button type="button">Click Me!</button>
+		<div class="text">Add Vertex</div>
+		<div class="inputFieldDiv" id="AddVertexField">
+			<input type="text" value="" class="inputField">
+		</div>
+		<div class="text">Remove Vertex</div>
+		<div class="inputFieldDiv" id="RemoveVertexField">
+			<input type="text" value="" class="inputField">
+		</div>
+		<div class="text">Add Edge</div>
+		<div class="inputFieldDiv" id="AddEdgeField">
+			<input type="text" value="" class="inputField">
+		</div>
+		<div class="text">Remove Edge</div>
+		<div class="inputFieldDiv" id="RemoveVertexField">
+			<input type="text" value="" class="inputField">
+		</div>
+
+	</div>
 
 	<script>
+	var UI = document.getElementById("ui");
+	dragDiv(event,UI);
 	var myGraph = new Graph(graphStructure);
 	myGraph.insertVertex("w");
 	myGraph.insertEdge("w","v");
 	myGraph.insertEdge("w","u");
 	createHTMLGraph(myGraph);
-
 	</script>
 
 </body 
