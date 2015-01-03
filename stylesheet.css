@@ -1,7 +1,7 @@
 /*@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400);*/
 
 .vertex{
-	position: relative;
+	position: absolute;
 	width: 50px;
 	height: 50px;
 	top: 0px;
@@ -18,12 +18,12 @@
 	color: white;
 }
 .edge{
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	height: 10px;
+	stroke: blue;
+	stroke-width:2;
+	position:absolute;
 	background-color: black;
 }
+
 /*
 	BG:Turquoise - #1abc9c
 	B:Green Sea - #16a085

@@ -1,23 +1,14 @@
 var graphStructure = {
    
-	"a":{
+	"v":{
 		"edgelist":{
-			"c":false,
-			"b":true,
+			"u":true,
 			}
 	},
 
-	"b":{
+	"u":{
 		"edgelist":{
-			"a":true,
-			"c":true,
-			}
-	},
-   
-	"c":{
-		"edgelist":{
-			"a":false,
-			"b":true,
+			"v":true,
 			}
 	},
 };
@@ -29,11 +20,15 @@ var graphStructure = {
 function storeData(graph)
 {
 	localStorage.setItem('graph', JSON.stringify(graph));
-	var retrievedObject = localStorage.getItem('graph');
 }
 /**
  * Remove stored graph data
  */
 function removeStoredData(){
 	localStorage.removeItem('graph');
+}
+
+function retrieveData(){
+	var retrievedObject = localStorage.getItem('graph');
+	return JSON.parse(retrievedObject);
 }
