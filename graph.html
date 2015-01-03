@@ -10,12 +10,13 @@
 
 <body style="margin:0; padding:0;">
 
-<!-- 	<div id="myEdge" class="edge"></div> 
- -->
 	<script>
 	var myGraph = new Graph(graphStructure);
+	myGraph.insertVertex("w");
+	myGraph.insertEdge("w","v");
+	myGraph.insertEdge("w","u");
 	createHTMLGraph(myGraph);
-	storeData(myGraph.data);
+
 	</script>
 
 </body 

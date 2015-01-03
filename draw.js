@@ -70,7 +70,6 @@ function createHTMLGraph(graph){
     // Make the newly added div to be draggable
     dragDiv(event,document.body.childNodes[0]);
   }
-  createEdges(graph);
 }
 
 function createEdges(graph){
@@ -90,7 +89,14 @@ function updateEdges(vertex){
   var newGraph = new Graph(retrieveData());
   var adjvertices = newGraph.adjcentVertices(vertex);
   for (var i = 0; i < adjvertices.length; i++) {
-    var edge = document.getElementById(vertex + adjvertices[i]);
+
+
+    if(document.getElementById(vertex + adjvertices[i])){
+      var edge = document.getElementById(vertex + adjvertices[i]);
+    }else{
+      var edge = document.getElementById(adjvertices[i] + vertex);
+    }
+
     var u = document.getElementById(adjvertices[i]);
       // Get the position of the v vertex
     var vX = parseInt(v.style.left,10) + 25;
@@ -141,14 +147,15 @@ function updateEdges(vertex){
       x2 = width;
       y2 = 0;
     }
-  edge.style.left = edgeLeft+"px";
-  edge.style.top = edgeTop+"px";
-  edge.style.width = width + "px";
-  edge.style.height = height + "px";
-  // edge.childNodes[1].x1.baseVal.value = x1;
-  // edge.childNodes[1].y1.baseVal.value = y1;
-  // edge.childNodes[1].x2.baseVal.value = x2;
-  // edge.childNodes[1].y2.baseVal.value = y2;
+
+    edge.parentNode.style.left = edgeLeft+"px";
+    edge.parentNode.style.top = edgeTop+"px";
+    edge.parentNode.style.width = width + "px";
+    edge.parentNode.style.height = height + "px";
+    edge.x1.baseVal.value = x1;
+    edge.y1.baseVal.value = y1;
+    edge.x2.baseVal.value = x2;
+    edge.y2.baseVal.value = y2;
 
   };
 }
@@ -156,64 +163,68 @@ function updateEdges(vertex){
 function createEdge(v,u){
   // Create edge label
   var edgeLabel = v.innerHTML + u.innerHTML;
+  var edgeLabelDuplicate = u.innerHTML + v.innerHTML;
+  if(!document.getElementById(edgeLabelDuplicate)   &&  !document.getElementById(edgeLabel) ){
 
-  // Get the position of the v vertex
-  var vX = parseInt(v.style.left,10) + 25;
-  var vY = parseInt(v.style.top,10) + 25;
-  // Get the position of the u vertex
-  var uX = parseInt(u.style.left,10) + 25;
-  var uY = parseInt(u.style.top,10) + 25;
+    // Get the position of the v vertex
+    var vX = parseInt(v.style.left,10) + 25;
+    var vY = parseInt(v.style.top,10) + 25;
+    // Get the position of the u vertex
+    var uX = parseInt(u.style.left,10) + 25;
+    var uY = parseInt(u.style.top,10) + 25;
 
-  // Get the width between the two vertices
-  var width = Math.abs(uX - vX);
-  // Get the height between the two vertices
-  var height = Math.abs(uY - vY);
+    // Get the width between the two vertices
+    var width = Math.abs(uX - vX);
+    // Get the height between the two vertices
+    var height = Math.abs(uY - vY);
 
-  var edgeLeft = 0;
-  var edgeTop = 0;
-  var x1 = 0;
-  var y1 = 0;
-  var x2 = 0;
-  var y2 = 0;
+    var edgeLeft = 0;
+    var edgeTop = 0;
+    var x1 = 0;
+    var y1 = 0;
+    var x2 = 0;
+    var y2 = 0;
 
-  if(uX < vX){
-    edgeLeft = uX;
-  }else{
-    edgeLeft = vX;
+    if(uX < vX){
+      edgeLeft = uX;
+    }else{
+      edgeLeft = vX;
+    }
+
+    if(uY > vY){
+      edgeTop = vY;
+    }else{
+      edgeTop = uY;
+    }
+
+    if(uX < vX && uY < vY){
+      y1 = 0;
+      x2 = width;
+      y2 = height;
+    }else if(vX < uX && vY < uY){
+      y1 = 0;
+      x2 = width;
+      y2 = height;
+    }else if(uX < vX && uY > vY){
+      y1 = height;
+      x2 = width;
+      y2 = 0;
+    }else if(vX < uX && vY > uY){
+      y1 = height;
+      x2 = width;
+      y2 = 0;
+    }
+    
+    // SVG Draw Line x1="0" y1="100" x2="200" y2="0" 
+    var line = '<svg class="edge"> <line id="'+edgeLabel+'" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"  /> </svg>'
+    var fragment = create(line);    
+    document.body.insertBefore(fragment,document.body.childNodes[0]);
+    document.body.childNodes[0].style.left = edgeLeft + "px";
+    document.body.childNodes[0].style.top = edgeTop + "px";
+    document.body.childNodes[0].style.width = width + "px";
+    document.body.childNodes[0].style.height = height + "px";
+
   }
-
-  if(uY > vY){
-    edgeTop = vY;
-  }else{
-    edgeTop = uY;
-  }
-
-  if(uX < vX && uY < vY){
-    y1 = 0;
-    x2 = width;
-    y2 = height;
-  }else if(vX < uX && vY < uY){
-    y1 = 0;
-    x2 = width;
-    y2 = height;
-  }else if(uX < vX && uY > vY){
-    y1 = height;
-    x2 = width;
-    y2 = 0;
-  }else if(vX < uX && vY > uY){
-    y1 = height;
-    x2 = width;
-    y2 = 0;
-  }
-  
-  // SVG Draw Line x1="0" y1="100" x2="200" y2="0" 
-  var line = '<svg class="edge"> <line id="'+edgeLabel+'" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"  /> </svg>'
-  var fragment = create(line);    
-  document.body.insertBefore(fragment,document.body.childNodes[0]);
-  document.body.childNodes[0].style.left = edgeLeft;
-  document.body.childNodes[0].style.top = edgeTop;
-  document.body.childNodes[0].style.width = width + "px";
-  document.body.childNodes[0].style.height = height + "px";
 
 
 }

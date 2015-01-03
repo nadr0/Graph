@@ -17,6 +17,8 @@ var Graph = Class.extend({
             // Blank edgelist
             "edgelist":{}
         }
+        // Update local storage
+        updateData(this.data);
     },
     /**
      * Inserts an edge between two vertices
@@ -28,6 +30,8 @@ var Graph = Class.extend({
         this.data[v].edgelist[u] = true;
         // Adds edge between u to v
         this.data[u].edgelist[v] = true;
+        // Update local storage
+        updateData(this.data);
     },
     /**
      * Deletes the vertex from the graph
@@ -38,6 +42,8 @@ var Graph = Class.extend({
         this.deleteEdges(v);
         // Deletes v from graph
         delete this.data[v];
+        // Update local storage
+        updateData(this.data);
     },
     /** 
      * Deletes all edges incident v
@@ -51,6 +57,8 @@ var Graph = Class.extend({
             // Delete the edge between vertex and v
             delete this.data[vertices[i]].edgelist[v];
         }
+        // Update local storage
+        updateData(this.data);
     },
     /**
      * Deletes edge between v and u
@@ -62,6 +70,8 @@ var Graph = Class.extend({
         delete this.data[v].edgelist[u];
         // Removes edge between u to v
         delete this.data[u].edgelist[v];
+        // Update local storage
+        updateData(this.data);
     },
     /** 
      * Returns array of adjcent vertices

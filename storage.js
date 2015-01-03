@@ -11,6 +11,12 @@ var graphStructure = {
 			"v":true,
 			}
 	},
+
+	"u":{
+		"edgelist":{
+			"v":true,
+			}
+	},
 };
 
 /**
@@ -27,8 +33,17 @@ function storeData(graph)
 function removeStoredData(){
 	localStorage.removeItem('graph');
 }
-
+/**
+ * Returns the stored data
+ */
 function retrieveData(){
 	var retrievedObject = localStorage.getItem('graph');
 	return JSON.parse(retrievedObject);
+}
+/**
+ * Updates the stored data
+ */
+function updateData(graph){
+	removeStoredData();
+	storeData(graph);
 }
