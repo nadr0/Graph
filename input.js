@@ -40,9 +40,10 @@ function addEdge(){
 	var v = document.getElementById(vertices[0]);
 	var u =  document.getElementById(vertices[1]);
 
-	newGraph.insertEdge(v.innerHTML,u.innerHTML);
-	createEdge(v,u);
-
+	if(edge != ""){
+		newGraph.insertEdge(v.innerHTML,u.innerHTML);
+		createEdge(v,u);
+	}
 	button.value = "";
 }
 
@@ -54,12 +55,30 @@ function removeEdge(){
 	var v = document.getElementById(vertices[0]);
 	var u =  document.getElementById(vertices[1]);
 
-	if(document.getElementById(v.innerHTML + u.innerHTML)){
-		var edgeHTML = document.getElementById(v.innerHTML + u.innerHTML);
-	}else{
-		var edgeHTML = document.getElementById(u.innerHTML + v.innerHTML);
+	if(edge != ""){
+		if(document.getElementById(v.innerHTML + u.innerHTML)){
+			var edgeHTML = document.getElementById(v.innerHTML + u.innerHTML);
+		}else{
+			var edgeHTML = document.getElementById(u.innerHTML + v.innerHTML);
+		}
+		edgeHTML.parentNode.removeChild(edgeHTML);
+		newGraph.deleteEdge(v.innerHTML, u.innerHTML);
 	}
-	edgeHTML.parentNode.removeChild(edgeHTML);
-	newGraph.deleteEdge(v.innerHTML, u.innerHTML);
 	button.value = "";
+}
+
+function keyBoardInit(event){
+	document.body.addEventListener("keypress", function(event){
+		if(event.keyCode === 13 ){
+			if(document.activeElement.parentNode.id === "AddVertexField"){
+				addVertex();
+			}else if(document.activeElement.parentNode.id === "RemoveVertexField"){
+				removeVertex();
+			}else if(document.activeElement.parentNode.id === "AddEdgeField"){
+				addEdge();
+			}else if(document.activeElement.parentNode.id === "RemoveEdgeField"){
+				removeEdge();
+			}
+		}
+	},false);
 }
