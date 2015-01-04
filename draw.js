@@ -105,6 +105,24 @@ function createHTMLGraph(graph){
   createEdges(graph);
 }
 
+function addVertexToHTMLGraph(vertex){
+    var backgroundColors = ["","#1abc9c","#2ecc71","#3498db","#9b59b6","#34495e","#f1c40f","#e67e22","#e74c3c","#95a5a6"];
+    var borderColors = ["","#16a085","#27ae60","#2980b9","#8e44ad","#2c3e50","#f39c12","#d35400","#c0392b","#7f8c8d"];
+    // Create a fragment for the new div to add to the body
+    var fragment = create('<div id="'+vertex+'"class="vertex">'+vertex+'</div>');    
+    // Insert the fragment to the body
+    document.body.insertBefore(fragment,document.body.childNodes[0]);
+
+    // Choose random color index
+    var randomColorIndex = Math.floor((Math.random() * 9) + 1);
+    // Set the border color
+    document.body.childNodes[0].style.borderColor = borderColors[randomColorIndex];
+    // Set the background color
+    document.body.childNodes[0].style.backgroundColor = backgroundColors[randomColorIndex];
+    // Make the newly added div to be draggable
+    dragVertexDiv(event,document.body.childNodes[0]);
+}
+
 function createEdges(graph){
   for (var vertex in graph.data)
   { 
@@ -257,6 +275,5 @@ function createEdge(v,u){
     document.body.childNodes[0].style.height = height + "px";
 
   }
-
 
 }

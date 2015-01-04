@@ -4,31 +4,35 @@
     <script src="storage.js"></script>
     <script src="graph.js"></script>
     <script src="draw.js"></script>
+    <script src="input.js"></script>
 </head>
-
-
 
 <body>
 
 	<div id="ui">
-		<button type="button">Click Me!</button>
+		<div id="myGraph">My Graph</div>
+
+
+		<button  class="button" id="addVertexButton" type="button" onclick="addVertex()" ></button>
 		<div class="text">Add Vertex</div>
 		<div class="inputFieldDiv" id="AddVertexField">
 			<input type="text" value="" class="inputField">
 		</div>
+		<button class="button" id="removeVertexButton" type="button" onclick="removeVertex()" ></button>
 		<div class="text">Remove Vertex</div>
 		<div class="inputFieldDiv" id="RemoveVertexField">
 			<input type="text" value="" class="inputField">
 		</div>
+		<button class="button" id="addEdgeButton" type="button" onclick="addEdge()" ></button>
 		<div class="text">Add Edge</div>
 		<div class="inputFieldDiv" id="AddEdgeField">
 			<input type="text" value="" class="inputField">
 		</div>
+		<button class="button" id="removeEdgeButton" type="button" onclick="removeEdge()" ></button>
 		<div class="text">Remove Edge</div>
-		<div class="inputFieldDiv" id="RemoveVertexField">
+		<div class="inputFieldDiv" id="RemoveEdgeField">
 			<input type="text" value="" class="inputField">
 		</div>
-
 	</div>
 
 	<script>

@@ -11,12 +11,6 @@ var graphStructure = {
 			"v":true,
 			}
 	},
-
-	"u":{
-		"edgelist":{
-			"v":true,
-			}
-	},
 };
 
 /**
