@@ -88,6 +88,20 @@ var Graph = Class.extend({
         }
         // return the vertices
         return vertices;
+    },
+    BFS: function(startingVertex){
+        var startingvertex = startingVertex;
+        var Q = [];
+        var set = {};
+        Q.push(startingvertex);
+
+
+        console.log(set[startingvertex]);
+        if(!set[startingvertex] ){
+            console.log("Dog");
+        }
+    
+        var currentNode = Q.shift();   
     }
 
 });
