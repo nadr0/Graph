@@ -2,7 +2,7 @@ function addVertex(){
 	var button = document.getElementById("AddVertexField").childNodes[1];
 	var newGraph = new Graph(retrieveData());
 	var vertex = button.value;
-	if(!newGraph.data[vertex]){
+	if(!newGraph.data[vertex] && vertex != ""){
 		newGraph.insertVertex(vertex);
 		addVertexToHTMLGraph(vertex);
 	}
