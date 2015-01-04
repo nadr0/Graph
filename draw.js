@@ -113,14 +113,16 @@ function addVertexToHTMLGraph(vertex){
     // Insert the fragment to the body
     document.body.insertBefore(fragment,document.body.childNodes[0]);
 
+    var newVertex = document.getElementById(vertex);
+
     // Choose random color index
     var randomColorIndex = Math.floor((Math.random() * 9) + 1);
     // Set the border color
-    document.body.childNodes[0].style.borderColor = borderColors[randomColorIndex];
+    newVertex.style.borderColor = borderColors[randomColorIndex];
     // Set the background color
-    document.body.childNodes[0].style.backgroundColor = backgroundColors[randomColorIndex];
+    newVertex.style.backgroundColor = backgroundColors[randomColorIndex];
     // Make the newly added div to be draggable
-    dragVertexDiv(event,document.body.childNodes[0]);
+    dragVertexDiv(event,newVertex);
 }
 
 function createEdges(graph){
