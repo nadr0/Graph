@@ -247,6 +247,25 @@ body{
 	left: 100px;
 	text-shadow: 1px 1px 1px #000;
 }
+#discoveryEdge{
+	position: relative;
+	top: 35px;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+	color : #2ecc71;
+	text-align: center;
+	text-shadow: 1px 1px 1px #000;
+}
+
+#crossbackEdge{	
+	position: relative;
+	top: 45px;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+	color : #e74c3c;
+	text-align: center;
+	text-shadow: 1px 1px 1px #000;
+}
 
 .button{
 	background-color: #7f8c8d;
