@@ -61,7 +61,7 @@ function removeEdge(){
 		}else{
 			var edgeHTML = document.getElementById(u.innerHTML + v.innerHTML);
 		}
-		edgeHTML.parentNode.removeChild(edgeHTML);
+		edgeHTML.parentNode.parentNode.removeChild(edgeHTML.parentNode);
 		newGraph.deleteEdge(v.innerHTML, u.innerHTML);
 	}
 	button.value = "";

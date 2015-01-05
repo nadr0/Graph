@@ -6,7 +6,6 @@
 function dragVertexDiv(event, div){
   // Drag set to false
   var drag = false;
-  var angle = 0;
   // Mouse down event listener
   div.addEventListener("mousedown", function( event ) {   
     // If mouse is down, drag is set to true
@@ -31,14 +30,12 @@ function dragVertexDiv(event, div){
       drag = false;
     }, false);
 
-
   }, false);
 };
 
 function dragDiv(event, div){
   // Drag set to false
   var drag = false;
-  var angle = 0;
   // Mouse down event listener
   div.addEventListener("mousedown", function( event ) {   
     // If mouse is down, drag is set to true
@@ -281,17 +278,17 @@ function createEdge(v,u){
 }
 
 function switchUI(div){
+  var creationDiv = document.getElementById("creation");
+  var algorithms = document.getElementById("algorithms");
+  var creationTab = document.getElementById("creationTab");
+  var functionTab = document.getElementById("functionTab");
+
+  var fill1 = document.getElementById("fill1");
+  var fill2 = document.getElementById("fill2");
+  var fill3 = document.getElementById("fill3");
+  var fill4 = document.getElementById("fill4");
+
   if(div.id === "functionTab"){
-
-    var creationDiv = document.getElementById("creation");
-    var algorithms = document.getElementById("algorithms");
-    var creationTab = document.getElementById("creationTab");
-    var functionTab = document.getElementById("functionTab");
-
-    var fill1 = document.getElementById("fill1");
-    var fill2 = document.getElementById("fill2");
-    var fill3 = document.getElementById("fill3");
-    var fill4 = document.getElementById("fill4");
 
     fill1.style.display  = "inline";
     fill2.style.display = "none";
@@ -305,16 +302,6 @@ function switchUI(div){
     creationDiv.style.display = "inline";
 
   }else if(div.id === "creationTab"){
-
-    var creationDiv = document.getElementById("creation");
-    var algorithms = document.getElementById("algorithms");
-    var creationTab = document.getElementById("creationTab");
-    var functionTab = document.getElementById("functionTab");
-    
-    var fill1 = document.getElementById("fill1");
-    var fill2 = document.getElementById("fill2");
-    var fill3 = document.getElementById("fill3");
-    var fill4 = document.getElementById("fill4");
 
     fill1.style.display  = "none";
     fill2.style.display = "inline";
