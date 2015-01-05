@@ -6,6 +6,16 @@ body{
 	background-color: #bdc3c7;
 }
 
+#dragMe{
+	position: absolute;
+	left: 75px;
+	top: 25px;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+	color : #ecf0f1;
+	font-size: 1.5em;
+	text-shadow: 1px 1px 1px #000;
+}
 .vertex{
 	position: absolute;
 	width: 50px;
@@ -156,6 +166,10 @@ body{
 	border-bottom: 0px;
 }
 
+.inactive:hover{
+	text-shadow: 1px 1px 1px #000;
+}
+
 #fill1{
 	display: inline;
 	position: absolute;
@@ -231,6 +245,7 @@ body{
 	font-weight: 400;
 	color : #ecf0f1;
 	left: 100px;
+	text-shadow: 1px 1px 1px #000;
 }
 
 .button{

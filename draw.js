@@ -282,7 +282,7 @@ function createEdge(v,u){
 
 function switchUI(div){
   if(div.id === "functionTab"){
-    
+
     var creationDiv = document.getElementById("creation");
     var algorithms = document.getElementById("algorithms");
     var creationTab = document.getElementById("creationTab");
@@ -329,5 +329,3 @@ function switchUI(div){
 
   }
 }
-
-
