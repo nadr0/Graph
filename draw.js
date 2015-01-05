@@ -329,3 +329,10 @@ function switchUI(div){
 
   }
 }
+
+function resetEdges(){
+    var edges = document.getElementsByClassName("edge");
+    for(var i = 0; i < edges.length; i++){
+        edges[i].childNodes[1].style.stroke = "#141414";
+    }
+}

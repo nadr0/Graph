@@ -82,6 +82,35 @@ body{
 	z-index: 1;
 }
 
+#resetEdges{
+	position: absolute;
+	width: 60px;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+	color : #ecf0f1;
+	outline: none;
+	border: 2px solid #95a5a6;
+	background-color: rgba(255, 255, 255, 0.0);
+	text-shadow: 1px 1px 1px #000;
+	border-radius: 5px;
+	left: 82.5px;
+	top: 195px;
+}
+
+#resetEdges:hover{
+ 	background: #95a5a6;
+	-webkit-transition: background-color  1s;
+	-moz-transition: background-color 1s;
+	-o-transition: background-color  1s;
+	transition: background-color  1s;
+}
+
+#resetEdges:active{
+ 	transition: all 0.1s ease-in-out;
+ 	-ms-transform: scale(1.2,1.2); 
+	-webkit-transform: scale(1.2,1.2);
+	transform: scale(1.2,1.2);
+}
 
 #ui{
 	position: absolute;
@@ -249,7 +278,7 @@ body{
 }
 #discoveryEdge{
 	position: relative;
-	top: 35px;
+	top: 55px;
 	font-family: 'Alegreya Sans SC';
 	font-weight: 400;
 	color : #2ecc71;
@@ -259,7 +288,7 @@ body{
 
 #crossbackEdge{	
 	position: relative;
-	top: 45px;
+	top: 65px;
 	font-family: 'Alegreya Sans SC';
 	font-weight: 400;
 	color : #e74c3c;
