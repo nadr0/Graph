@@ -75,17 +75,86 @@ body{
 
 #ui{
 	position: absolute;
-	top: 65px;
+	top: 165px;
 	left: 25px;
 	width: 225px;
 	height: 400px;
 	background-color: rgba(0, 0, 0, 0.4);
 	border-radius: 5%;
 	display: block;
-	padding-top: 15px;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
+}
+
+#creation{
+	display: inline;
+	width:225px;
+	height: 400px;
+	position: absolute;
+
+}
+
+#algorithms{	
+	display: none;
+	position: absolute;
+	width:225px;
+	height:400px;
+}
+
+#functionTab{
+	position: absolute;
+	width: 30px;
+	height: 25px;
+	left: 25px;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	background-color: rgba(255, 255, 255, 0.4);
+	z-index: 6;
+}
+
+#creationTab{
+	position: absolute;
+	width: 30px;
+	height: 25px;
+	left: 60px;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	background-color: rgba(255, 255, 255, 0.4);
+	z-index: 6;
+}
+
+#functionTab:hover{
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+#creationTab:hover{
+	background-color: rgba(255, 255, 255, 0.6);	
+}
+
+.arrowDown{
+	position: relative;
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid;
+	border-top-color: rgba(255, 255, 255, 0.7);
+	z-index: 6;
+}
+
+.arrowRight{
+	position: relative;
+	width: 0; 
+	height: 0; 
+	left: 5px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid;
+	border-left-color: rgba(255, 255, 255, 0.7);
+	z-index: 6;
 }
 
 .inputFieldDiv{
@@ -96,7 +165,6 @@ body{
 	border: 2px solid;
 	border-color: #bdc3c7;
 	left:  100px;
-	margin-top: 5px;
 }
 
 .inputField{
@@ -154,22 +222,7 @@ body{
 	transform: scale(1.5,1.5);
 }
 
-#addVertexButton{
-	position: relative;
-	top: 55px;
-	left: 25px;
-}
-#removeVertexButton{
-	position: relative;
-	top: 55px;
-	left: 25px;
-}
-#addEdgeButton{
-	position: relative;
-	top: 55px;
-	left: 25px;
-}
-#removeEdgeButton{
+#HTMLButton{
 	position: relative;
 	top: 55px;
 	left: 25px;

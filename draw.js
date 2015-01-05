@@ -279,3 +279,26 @@ function createEdge(v,u){
   }
 
 }
+
+function switchUI(div){
+  if(div.id === "functionTab"){
+    var creationDiv = document.getElementById("creation");
+    var algorithms = document.getElementById("algorithms");
+    var creationTab = document.getElementById("creationTab");
+    algorithms.style.display = "none";
+    creationDiv.style.display = "inline";
+    div.childNodes[1].className = "arrowDown";
+    creationTab.childNodes[1].className = "arrowRight";
+  }else if(div.id === "creationTab"){
+    var creationDiv = document.getElementById("creation");
+    var algorithms = document.getElementById("algorithms");
+    var functionTab = document.getElementById("functionTab");
+    creationDiv.style.display = "none";
+    algorithms.style.display = "inline";
+    div.childNodes[1].className = "arrowDown";
+    functionTab.childNodes[1].className = "arrowRight";
+
+  }
+}
+
+

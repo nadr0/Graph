@@ -78,7 +78,31 @@ function keyBoardInit(event){
 				addEdge();
 			}else if(document.activeElement.parentNode.id === "RemoveEdgeField"){
 				removeEdge();
+			}else if(document.activeElement.parentNode.id === "BFSinputField"){
+				BFS();
+			}else if(document.activeElement.parentNode.id === "DFSinputField"){
+				DFS();
 			}
 		}
 	},false);
+}
+
+function BFS(){
+	var button = document.getElementById("BFSinputField").childNodes[1];
+	var newGraph = new Graph(retrieveData());
+	var vertex = button.value;
+	if(vertex != ""){
+		newGraph.BFS(vertex);
+	}
+	button.value = "";
+}
+
+function DFS(){
+	var button = document.getElementById("DFSinputField").childNodes[1];
+	var newGraph = new Graph(retrieveData());
+	var vertex = button.value;
+	if(vertex != ""){
+		newGraph.DFS(vertex);
+	}
+	button.value = "";
 }

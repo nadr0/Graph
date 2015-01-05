@@ -6,6 +6,8 @@ var Graph = Class.extend({
     init: function(graphStructure){
         // Sets local data to the passed in structure
         this.data = graphStructure;
+        this.DFSvertexSet = {};
+        this.DFSedgeSet = {};
     },
     /**
      * Inserts a vertex into the graph with a label
@@ -92,16 +94,61 @@ var Graph = Class.extend({
     BFS: function(startingVertex){
         var startingvertex = startingVertex;
         var Q = [];
-        var set = {};
+        var vertexSet = {};
+        var edgeSet = {};
         Q.push(startingvertex);
 
+        while(Q.length > 0){
+            var currentVertex = Q.shift();   
+            var adjVertices = this.adjcentVertices(currentVertex);
+            for(var i = 0; i < adjVertices.length; i++){
+                if(!vertexSet[adjVertices[i]]){
+                   if(document.getElementById(currentVertex + adjVertices[i])){
+                      var edge = document.getElementById(currentVertex + adjVertices[i]);
+                    }else{
+                      var edge = document.getElementById(adjVertices[i] + currentVertex);
+                    }
+                    edge.style.stroke = "green";
+                    vertexSet[adjVertices[i]] = true;
+                    edgeSet[currentVertex+adjVertices[i]] = true;
+                    edgeSet[adjVertices[i]+currentVertex] = true;
+                    Q.push(adjVertices[i]);
+                }else if(!edgeSet[currentVertex+adjVertices[i]]){
+                   if(document.getElementById(currentVertex + adjVertices[i])){
+                      var edge = document.getElementById(currentVertex + adjVertices[i]);
+                    }else{
+                      var edge = document.getElementById(adjVertices[i] + currentVertex);
+                    }
+                    edge.style.stroke = "red";
+                }
+            }
 
-        console.log(set[startingvertex]);
-        if(!set[startingvertex] ){
-            console.log("Dog");
         }
-    
-        var currentNode = Q.shift();   
+
+    },
+    DFS: function(vertex){
+        this.DFSvertexSet[vertex] = true;
+        var adjVertices = this.adjcentVertices(vertex);
+        for (var i = 0; i < adjVertices.length; i++) {
+            if(!this.DFSvertexSet[adjVertices[i]]){
+                this.DFSedgeSet[vertex + adjVertices[i]] = true;
+                this.DFSedgeSet[adjVertices[i] + vertex] = true;
+                if(document.getElementById(vertex + adjVertices[i])){
+                  var edge = document.getElementById(vertex + adjVertices[i]);
+                }else{
+                  var edge = document.getElementById(adjVertices[i] + vertex);
+                }
+                edge.style.stroke = "green";
+                this.DFS(adjVertices[i]);
+            }else if(!this.DFSedgeSet[vertex + adjVertices[i]]){
+                if(document.getElementById(vertex + adjVertices[i])){
+                  var edge = document.getElementById(vertex + adjVertices[i]);
+                }else{
+                  var edge = document.getElementById(adjVertices[i] + vertex);
+                }
+                edge.style.stroke = "red";
+            }
+        };
     }
 
 });
