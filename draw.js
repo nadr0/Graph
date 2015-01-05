@@ -282,21 +282,50 @@ function createEdge(v,u){
 
 function switchUI(div){
   if(div.id === "functionTab"){
+    
     var creationDiv = document.getElementById("creation");
     var algorithms = document.getElementById("algorithms");
     var creationTab = document.getElementById("creationTab");
+    var functionTab = document.getElementById("functionTab");
+
+    var fill1 = document.getElementById("fill1");
+    var fill2 = document.getElementById("fill2");
+    var fill3 = document.getElementById("fill3");
+    var fill4 = document.getElementById("fill4");
+
+    fill1.style.display  = "inline";
+    fill2.style.display = "none";
+    fill3.style.display = "inline";
+    fill4.style.display = "none";
+
+    functionTab.className = "active";
+    creationTab.className = "inactive";
+
     algorithms.style.display = "none";
     creationDiv.style.display = "inline";
-    div.childNodes[1].className = "arrowDown";
-    creationTab.childNodes[1].className = "arrowRight";
+
   }else if(div.id === "creationTab"){
+
     var creationDiv = document.getElementById("creation");
     var algorithms = document.getElementById("algorithms");
+    var creationTab = document.getElementById("creationTab");
     var functionTab = document.getElementById("functionTab");
+    
+    var fill1 = document.getElementById("fill1");
+    var fill2 = document.getElementById("fill2");
+    var fill3 = document.getElementById("fill3");
+    var fill4 = document.getElementById("fill4");
+
+    fill1.style.display  = "none";
+    fill2.style.display = "inline";
+    fill3.style.display = "none";
+    fill4.style.display = "inline";
+
+    functionTab.className = "inactive";
+    creationTab.className = "active";
+
     creationDiv.style.display = "none";
     algorithms.style.display = "inline";
-    div.childNodes[1].className = "arrowDown";
-    functionTab.childNodes[1].className = "arrowRight";
 
   }
 }

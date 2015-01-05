@@ -9,9 +9,14 @@
 
 <body>
 
-
 	<div id="ui">
-		<button id="functionTab" type="button" onclick="switchUI(this)" > <div class="arrowDown"></div> </button>
+		<button class="active" id="functionTab" type="button" onclick="switchUI(this)" > <div>Creation</div> </button>
+		
+		<div id="fill1"></div>
+		<div id="fill2"></div>
+		<div id="fill3"></div>
+		<div id="fill4"></div>
+
 		<div id="creation">
 
 			<button  class="button" id="HTMLButton" type="button" onclick="addVertex()" ></button>
@@ -35,9 +40,8 @@
 				<input type="text" value="" class="inputField">
 			</div>
 		</div>
-		<button id="creationTab" type="button" onclick="switchUI(this)" > <div class="arrowRight"></div> </button>
+		<button class="inactive" id="creationTab" type="button" onclick="switchUI(this)" > <div>Traversal</div> </button>
 		<div id="algorithms">
-
 
 			<button  class="button" id="HTMLButton" type="button" onclick="BFS()" ></button>
 			<div class="text">BFS</div>
