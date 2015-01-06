@@ -106,6 +106,7 @@ function DFS(){
 	var newGraph = new Graph(retrieveData());
 	var vertex = button.value;
 	if(vertex != ""){
+	        	newGraph.clearMST();
 		newGraph.DFS(vertex);
 	}
 	button.value = "";

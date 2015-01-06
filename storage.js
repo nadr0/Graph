@@ -17,6 +17,9 @@ var graphStructure = {
 			"v":1,
 		}
 	},
+	"MST": {
+		
+	}
 };
 
 /**

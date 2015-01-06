@@ -100,7 +100,12 @@ var Graph = Class.extend({
         this.data[u].edgeweight[v] = weight;
         updateData(this.data);
     },
+    clearMST: function(){
+        this.data.MST = {};
+        updateData(this.data);
+    },
     BFS: function(startingVertex){
+        this.clearMST();
         var startingvertex = startingVertex;
         var Q = [];
         var vertexSet = {};
@@ -118,6 +123,7 @@ var Graph = Class.extend({
                       var edge = document.getElementById(adjVertices[i] + currentVertex);
                     }
                     edge.style.stroke = "green";
+                    this.data.MST[edge.id] = true;
                     vertexSet[adjVertices[i]] = true;
                     edgeSet[currentVertex+adjVertices[i]] = true;
                     edgeSet[adjVertices[i]+currentVertex] = true;
@@ -133,7 +139,7 @@ var Graph = Class.extend({
             }
 
         }
-
+        updateData(this.data);
     },
     DFS: function(vertex){
         this.DFSvertexSet[vertex] = true;
@@ -148,6 +154,7 @@ var Graph = Class.extend({
                   var edge = document.getElementById(adjVertices[i] + vertex);
                 }
                 edge.style.stroke = "green";
+                this.data.MST[edge.id] = true;
                 this.DFS(adjVertices[i]);
             }else if(!this.DFSedgeSet[vertex + adjVertices[i]]){
                 if(document.getElementById(vertex + adjVertices[i])){
@@ -158,6 +165,6 @@ var Graph = Class.extend({
                 edge.style.stroke = "red";
             }
         };
+        updateData(this.data);
     }
-
 });
