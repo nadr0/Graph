@@ -17,7 +17,8 @@ var Graph = Class.extend({
         // Inserts the new vertex into the JSON object
         this.data[label] = {
             // Blank edgelist
-            "edgelist":{}
+            "edgelist":{},
+            "edgeweight":{}
         }
         // Update local storage
         updateData(this.data);
@@ -32,6 +33,9 @@ var Graph = Class.extend({
         this.data[v].edgelist[u] = true;
         // Adds edge between u to v
         this.data[u].edgelist[v] = true;
+        // Set edge weight
+        this.data[v].edgeweight[u] = 1;
+        this.data[u].edgeweight[v] = 1;
         // Update local storage
         updateData(this.data);
     },
@@ -90,6 +94,11 @@ var Graph = Class.extend({
         }
         // return the vertices
         return vertices;
+    },
+    setEdgeWeight: function(v,u,weight){
+        this.data[v].edgeweight[u] = weight;
+        this.data[u].edgeweight[v] = weight;
+        updateData(this.data);
     },
     BFS: function(startingVertex){
         var startingvertex = startingVertex;

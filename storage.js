@@ -3,13 +3,19 @@ var graphStructure = {
 	"v":{
 		"edgelist":{
 			"u":true,
-			}
+		},
+		"edgeweight":{
+			"u":1,
+		}
 	},
 
 	"u":{
 		"edgelist":{
 			"v":true,
-			}
+		},
+		"edgeweight":{
+			"v":1,
+		}
 	},
 };
 

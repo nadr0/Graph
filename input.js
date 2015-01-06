@@ -39,9 +39,13 @@ function addEdge(){
 	var vertices = edge.split(",");
 	var v = document.getElementById(vertices[0]);
 	var u =  document.getElementById(vertices[1]);
-
+	var weight = 1;
+	if(vertices[2]){
+		weight = parseInt(vertices[2],10);
+	}
 	if(edge != ""){
 		newGraph.insertEdge(v.innerHTML,u.innerHTML);
+		newGraph.setEdgeWeight(v.innerHTML, u.innerHTML, weight);
 		createEdge(v,u);
 	}
 	button.value = "";
