@@ -21,6 +21,9 @@ var graphStructure = {
 		
 	},
 	"Cross":{
+
+	},
+	"Edges":{
 		
 	}
 };

@@ -62,6 +62,8 @@ var Graph = Class.extend({
         for(var i = 0; i < vertices.length; i++){
             // Delete the edge between vertex and v
             delete this.data[vertices[i]].edgelist[v];
+            delete this.data.Edges[v + vertices[i]];
+            delete this.data.Edges[vertices[i] + v];
         }
         // Update local storage
         updateData(this.data);
@@ -76,6 +78,8 @@ var Graph = Class.extend({
         delete this.data[v].edgelist[u];
         // Removes edge between u to v
         delete this.data[u].edgelist[v];
+        delete this.data.Edges[v+u];
+        delete this.data.Edges[u+v];
         // Update local storage
         updateData(this.data);
     },
