@@ -97,6 +97,9 @@ function BFS(){
 	var vertex = button.value;
 	if(vertex != ""){
 		newGraph.BFS(vertex);
+		mstEdgeOpacity("1.0");
+		var checkbox = document.getElementById("MSTCheck");
+		showMST(checkbox);
 	}
 	button.value = "";
 }
@@ -109,24 +112,17 @@ function DFS(){
     	newGraph.clearMST();
     	newGraph.clearCross();
 		newGraph.DFS(vertex);
+		mstEdgeOpacity("1.0");
+		var checkbox = document.getElementById("MSTCheck");
+		showMST(checkbox);
 	}
 	button.value = "";
 }
 
 function showMST(checkBox){
 	if(checkBox.checked){
-		var crossEdges = retrieveData().Cross;
-        for (var edge in crossEdges)
-        {
-        	var edgeHTML = document.getElementById(edge);
-        	edgeHTML.style.opacity = "0.2";
-        }
+		crossEdgeOpacity("0.1");
 	}else if(!checkBox.checked){
-		var crossEdges = retrieveData().Cross;
-        for (var edge in crossEdges)
-        {
-        	var edgeHTML = document.getElementById(edge);
-        	edgeHTML.style.opacity = "1.0";
-        }
+		crossEdgeOpacity("1.0");
 	}
 }

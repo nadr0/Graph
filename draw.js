@@ -325,3 +325,23 @@ function resetEdges(){
         edges[i].childNodes[1].style.stroke = "#141414";
     }
 }
+
+function crossEdgeOpacity(opacity){
+    var crossEdges = retrieveData().Cross;
+    for (var edge in crossEdges)
+    {
+      var edgeHTML = document.getElementById(edge);
+      edgeHTML.style.opacity = opacity;
+    }
+}
+
+function mstEdgeOpacity(opacity){
+    var mstEdges = retrieveData().MST;
+    for (var edge in mstEdges)
+    {
+      var edgeHTML = document.getElementById(edge);
+      edgeHTML.style.opacity = opacity;
+    }
+}
+
+
