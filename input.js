@@ -106,8 +106,27 @@ function DFS(){
 	var newGraph = new Graph(retrieveData());
 	var vertex = button.value;
 	if(vertex != ""){
-	        	newGraph.clearMST();
+    	newGraph.clearMST();
+    	newGraph.clearCross();
 		newGraph.DFS(vertex);
 	}
 	button.value = "";
+}
+
+function showMST(checkBox){
+	if(checkBox.checked){
+		var crossEdges = retrieveData().Cross;
+        for (var edge in crossEdges)
+        {
+        	var edgeHTML = document.getElementById(edge);
+        	edgeHTML.style.opacity = "0.2";
+        }
+	}else if(!checkBox.checked){
+		var crossEdges = retrieveData().Cross;
+        for (var edge in crossEdges)
+        {
+        	var edgeHTML = document.getElementById(edge);
+        	edgeHTML.style.opacity = "1.0";
+        }
+	}
 }

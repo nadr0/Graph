@@ -125,6 +125,22 @@ body{
 	transition: background-color  1s;
 }
 
+#MSTCheck{
+	position: absolute;
+	left: 75px;
+	top: 295px;
+}
+
+#MSTText{
+	position: absolute;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+	color : #ecf0f1;
+	left: 100px;
+	top: 295px;
+	text-shadow: 1px 1px 1px #000;
+}
+
 #resetEdges:active{
  	transition: all 0.1s ease-in-out;
  	-ms-transform: scale(1.2,1.2); 

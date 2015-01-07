@@ -19,6 +19,9 @@ var graphStructure = {
 	},
 	"MST": {
 		
+	},
+	"Cross":{
+		
 	}
 };
 

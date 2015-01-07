@@ -104,8 +104,13 @@ var Graph = Class.extend({
         this.data.MST = {};
         updateData(this.data);
     },
+    clearCross: function(){
+        this.data.Cross = {};
+        updateData(this.data);
+    },
     BFS: function(startingVertex){
         this.clearMST();
+        this.clearCross();
         var startingvertex = startingVertex;
         var Q = [];
         var vertexSet = {};
@@ -134,6 +139,7 @@ var Graph = Class.extend({
                     }else{
                       var edge = document.getElementById(adjVertices[i] + currentVertex);
                     }
+                    this.data.Cross[edge.id] = true;
                     edge.style.stroke = "red";
                 }
             }
@@ -162,6 +168,8 @@ var Graph = Class.extend({
                 }else{
                   var edge = document.getElementById(adjVertices[i] + vertex);
                 }
+                this.data.Cross[edge.id] = true;
+
                 edge.style.stroke = "red";
             }
         };
