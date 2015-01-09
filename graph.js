@@ -198,6 +198,8 @@ var Graph = Class.extend({
         for(var first in object) return first;
     },
     Kruskal: function(){
+        this.clearCross();
+        this.clearMST();
         var vertices = document.getElementsByClassName("vertex");
         var edges = this.getEdges();
         var obj = this.firstObject(edges[0]);
@@ -224,17 +226,31 @@ var Graph = Class.extend({
 
             var indexA = vertexToIndex[vertexA];
             var indexB = vertexToIndex[vertexB];
-            
+
+            if(document.getElementById(vertexA + vertexB)){
+              var edge = document.getElementById(vertexA + vertexB);
+            }else{
+              var edge = document.getElementById(vertexB + vertexA);
+            }
+
+            edge.style.stroke = "red";
 
             if(set.find(indexA) != set.find(indexB)){
                 set.setUnion(indexA,indexB);
-                if(document.getElementById(vertexA + vertexB)){
-                  var edge = document.getElementById(vertexA + vertexB);
-                }else{
-                  var edge = document.getElementById(vertexB + vertexA);
-                }
                 edge.style.stroke = "green";
+                this.data.MST[edge.id] = true;
+            }else{
+                edge.style.stroke = "red";
+                this.data.Cross[edge.id] = true;
+
             }
         }
+
+        var lastEdgeObj = this.firstObject(edges[edges.length-1]);
+        var lastEdge = document.getElementById(lastEdgeObj);
+        lastEdge.style.stroke = "red";
+        this.data.Cross[lastEdge.id] = true;
+        updateData(this.data);
     }
+
 });

@@ -327,7 +327,12 @@ function resetEdges(){
     var edges = document.getElementsByClassName("edge");
     for(var i = 0; i < edges.length; i++){
         edges[i].childNodes[1].style.stroke = "#141414";
+        edges[i].childNodes[1].style.opacity = "1.0";
     }
+    var newGraph = new Graph(retrieveData());
+    newGraph.clearMST();
+    newGraph.clearCross();
+    updateData(newGraph.data);
 }
 
 function crossEdgeOpacity(opacity){
