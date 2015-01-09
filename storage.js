@@ -5,7 +5,7 @@ var graphStructure = {
 			"u":true,
 		},
 		"edgeweight":{
-			"u":1,
+			"u":3,
 		}
 	},
 
@@ -14,7 +14,7 @@ var graphStructure = {
 			"v":true,
 		},
 		"edgeweight":{
-			"v":1,
+			"v":3,
 		}
 	},
 	"MST": {

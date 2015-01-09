@@ -126,3 +126,8 @@ function showMST(checkBox){
 		crossEdgeOpacity("1.0");
 	}
 }
+
+function Kruskal(){
+	var newGraph = new Graph(retrieveData());
+	newGraph.Kruskal();
+}

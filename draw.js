@@ -271,7 +271,7 @@ function createEdge(v,u){
     var fragment = create(line);    
     var graph = new Graph(retrieveData());
     var edgeWeight = graph.data[v.innerHTML].edgeweight[u.innerHTML];
-    graph.data.Edges[edgeLabel] = {weight: edgeWeight};
+    graph.data.Edges[edgeLabel] = {weight: edgeWeight, source: v.innerHTML, dest: u.innerHTML};
     updateData(graph.data);
     document.body.insertBefore(fragment,document.body.childNodes[0]);
     document.body.childNodes[0].style.left = edgeLeft + "px";

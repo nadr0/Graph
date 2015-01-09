@@ -113,8 +113,8 @@ body{
 	background-color: rgba(255, 255, 255, 0.0);
 	text-shadow: 1px 1px 1px #000;
 	border-radius: 5px;
-	left: 82.5px;
-	top: 195px;
+	left: 125px;
+	top: 350px;
 }
 
 #resetEdges:hover{
@@ -125,10 +125,17 @@ body{
 	transition: background-color  1s;
 }
 
+#resetEdges:active{
+ 	transition: all 0.1s ease-in-out;
+ 	-ms-transform: scale(1.2,1.2); 
+	-webkit-transform: scale(1.2,1.2);
+	transform: scale(1.2,1.2);
+}
+
 #MSTCheck{
 	position: absolute;
-	left: 75px;
-	top: 295px;
+	left: 45px;
+	top: 350px;
 }
 
 #MSTText{
@@ -136,16 +143,13 @@ body{
 	font-family: 'Alegreya Sans SC';
 	font-weight: 400;
 	color : #ecf0f1;
-	left: 100px;
-	top: 295px;
+	left: 70px;
+	top: 350px;
 	text-shadow: 1px 1px 1px #000;
 }
 
-#resetEdges:active{
- 	transition: all 0.1s ease-in-out;
- 	-ms-transform: scale(1.2,1.2); 
-	-webkit-transform: scale(1.2,1.2);
-	transform: scale(1.2,1.2);
+#kruskal{
+	top: 25px;
 }
 
 #ui{
@@ -229,6 +233,10 @@ body{
 	border-left-color:  #141414;
 	border-right-color:  #141414;
 	border-bottom: 0px;
+}
+
+.Kruskal{
+
 }
 
 .inactive:hover{

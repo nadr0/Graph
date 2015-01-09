@@ -178,5 +178,63 @@ var Graph = Class.extend({
             }
         };
         updateData(this.data);
+    },
+    getEdges: function(){
+        var edgeData = retrieveData().Edges;
+        var edges = [];
+        for (var edge in edgeData)
+        {
+            var edgeToPush = {};
+            var edgeDataForEdgeToPush = {};
+            edgeDataForEdgeToPush["weight"] = edgeData[edge].weight;
+            edgeDataForEdgeToPush["source"] = edgeData[edge].source;
+            edgeDataForEdgeToPush["dest"] = edgeData[edge].dest;
+            edgeToPush[edge] = edgeDataForEdgeToPush;
+            edges.push(edgeToPush);
+        }
+        return edges;
+    },
+    firstObject: function(object){
+        for(var first in object) return first;
+    },
+    Kruskal: function(){
+        var vertices = document.getElementsByClassName("vertex");
+        var edges = this.getEdges();
+        var obj = this.firstObject(edges[0]);
+        var currentGraph = this;
+        edges.sort(function(a, b) {
+            var ObjA = currentGraph.firstObject(a);
+            var ObjB = currentGraph.firstObject(b);
+            return a[ObjA].weight - b[ObjB].weight;
+        });
+
+        var vertexToIndex = {};
+        for(var i = 0; i < vertices.length; i++){
+            vertexToIndex[vertices[i].id] = i;
+        }
+        var set = new Disjointset();
+
+        set.addElements(vertices.length);
+
+        for(var i = 0; i < edges.length - 1; i++){
+            var objI = this.firstObject(edges[i]);
+
+            var vertexA = edges[i][objI].source;
+            var vertexB = edges[i][objI].dest;
+
+            var indexA = vertexToIndex[vertexA];
+            var indexB = vertexToIndex[vertexB];
+            
+
+            if(set.find(indexA) != set.find(indexB)){
+                set.setUnion(indexA,indexB);
+                if(document.getElementById(vertexA + vertexB)){
+                  var edge = document.getElementById(vertexA + vertexB);
+                }else{
+                  var edge = document.getElementById(vertexB + vertexA);
+                }
+                edge.style.stroke = "green";
+            }
+        }
     }
 });

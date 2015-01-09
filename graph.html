@@ -56,6 +56,9 @@
 				<input type="text" value="" class="inputField">
 			</div>
 
+			<button class="button" id="HTMLButton" type="button" onclick="Kruskal()" ></button>
+			<div class="text" id="kruskal">Kruskal</div>
+
 			<button id="resetEdges" type="button" onclick="resetEdges()" > Reset Edges</button>
 			<div id="discoveryEdge">Discovery Edge</div>
 			<div id="crossbackEdge">Cross/Back Edge</div>
@@ -74,6 +77,8 @@
 	myGraph.insertVertex("w");
 	myGraph.insertEdge("w","v");
 	myGraph.insertEdge("w","u");
+	myGraph.setEdgeWeight("w", "v", 10);
+	myGraph.setEdgeWeight("w", "u", 1);
 	createHTMLGraph(myGraph);
 	</script>
 
