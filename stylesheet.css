@@ -26,6 +26,17 @@ body{
 	behavior: url(/pie/PIE.htc);
 }
 
+.EW{
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+	font-size: 1.8em;
+	color : white;
+	text-shadow: 1.5px 1.5px 1.5px #000;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
 #dragMe{
 	position: absolute;
 	left: 75px;
@@ -233,10 +244,6 @@ body{
 	border-left-color:  #141414;
 	border-right-color:  #141414;
 	border-bottom: 0px;
-}
-
-.Kruskal{
-
 }
 
 .inactive:hover{

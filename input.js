@@ -21,7 +21,9 @@ function removeVertex(){
 		    }else{
 		      var edge = document.getElementById(adjvertices[i] + vertex);
 		    }
-		    edge.parentNode.removeChild(edge);
+    		var edgeWeightHTML = document.getElementById(edge.id + "EW");
+			edgeWeightHTML.parentNode.removeChild(edgeWeightHTML);
+			edge.parentNode.parentNode.removeChild(edge.parentNode);
 		}
 		newGraph.deleteVertex(vertex);
 		var vertexHTML = document.getElementById(vertex);
@@ -65,6 +67,8 @@ function removeEdge(){
 		}else{
 			var edgeHTML = document.getElementById(u.innerHTML + v.innerHTML);
 		}
+		var edgeWeightHTML = document.getElementById(edgeHTML.id + "EW");
+		edgeWeightHTML.parentNode.removeChild(edgeWeightHTML);
 		edgeHTML.parentNode.parentNode.removeChild(edgeHTML.parentNode);
 		newGraph.deleteEdge(v.innerHTML, u.innerHTML);
 	}

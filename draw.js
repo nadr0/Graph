@@ -200,6 +200,14 @@ function updateEdges(vertex){
       y2 = 0;
     }
 
+
+
+    var edgeWeightHTML = document.getElementById(edge.id + "EW");
+    var edgeWeightHTMLx = (vX + uX)/2;
+    var edgeWeightHTMLy = (vY + uY)/2;
+    edgeWeightHTML.style.left = edgeWeightHTMLx + "px";
+    edgeWeightHTML.style.top = edgeWeightHTMLy + "px";
+
     edge.parentNode.style.left = edgeLeft+"px";
     edge.parentNode.style.top = edgeTop+"px";
     edge.parentNode.style.width = width + "px";
@@ -208,6 +216,7 @@ function updateEdges(vertex){
     edge.y1.baseVal.value = y1;
     edge.x2.baseVal.value = x2;
     edge.y2.baseVal.value = y2;
+
 
   };
 }
@@ -266,11 +275,21 @@ function createEdge(v,u){
       x2 = width;
       y2 = 0;
     }
-    
-    var line = '<svg class="edge"> <line id="'+edgeLabel+'" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"  /> </svg>'
+
+    var EW = document.createElement("div");
+    EW.id = edgeLabel+"EW";
+    EW.className = "EW";
+    EW.style.position = "absolute";
+    var line = '<svg class="edge"><line id="'+edgeLabel+'" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"  /> </svg>'
     var fragment = create(line);    
     var graph = new Graph(retrieveData());
     var edgeWeight = graph.data[v.innerHTML].edgeweight[u.innerHTML];
+    EW.innerHTML = edgeWeight;
+    EW.style.zIndex = "12";
+    var edgeWeightHTMLx = (vX + uX)/2;
+    var edgeWeightHTMLy = (vY + uY)/2;
+    EW.style.left = edgeWeightHTMLx + "px";
+    EW.style.top = edgeWeightHTMLy + "px";
     graph.data.Edges[edgeLabel] = {weight: edgeWeight, source: v.innerHTML, dest: u.innerHTML};
     updateData(graph.data);
     document.body.insertBefore(fragment,document.body.childNodes[0]);
@@ -278,7 +297,7 @@ function createEdge(v,u){
     document.body.childNodes[0].style.top = edgeTop + "px";
     document.body.childNodes[0].style.width = width + "px";
     document.body.childNodes[0].style.height = height + "px";
-
+    document.body.insertBefore(EW,document.body.childNodes[0]);
   }
 
 }
@@ -326,8 +345,8 @@ function switchUI(div){
 function resetEdges(){
     var edges = document.getElementsByClassName("edge");
     for(var i = 0; i < edges.length; i++){
-        edges[i].childNodes[1].style.stroke = "#141414";
-        edges[i].childNodes[1].style.opacity = "1.0";
+        edges[i].childNodes[0].style.stroke = "#141414";
+        edges[i].childNodes[0].style.opacity = "1.0";
     }
     var newGraph = new Graph(retrieveData());
     newGraph.clearMST();
