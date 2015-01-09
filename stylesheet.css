@@ -37,13 +37,21 @@ body{
 	-ms-user-select: none;
 }
 
+.EW:hover{
+ 	transition: all 0.1s ease-in-out;
+ 	-ms-transform: scale(1.35,1.35); 
+	-webkit-transform: scale(1.35,1.35);
+	transform: scale(1.35,1.35);
+	cursor: none;
+}
+
 #dragMe{
 	position: absolute;
 	left: 75px;
 	top: 25px;
 	font-family: 'Alegreya Sans SC';
 	font-weight: 400;
-	color : #ecf0f1;
+	color : white;
 	font-size: 1.5em;
 	text-shadow: 1px 1px 1px #000;
 }
@@ -81,6 +89,7 @@ body{
 
 
 .vertex:active{
+	cursor: default;
 	-webkit-animation-name: rotate;
 	-webkit-animation-duration: 2s;
 	-webkit-animation-iteration-count: infinite;
