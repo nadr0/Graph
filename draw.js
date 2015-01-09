@@ -348,6 +348,7 @@ function resetEdges(){
         edges[i].childNodes[0].style.stroke = "#141414";
         edges[i].childNodes[0].style.opacity = "1.0";
     }
+    crossEdgeOpacity("1.0");
     var newGraph = new Graph(retrieveData());
     newGraph.clearMST();
     newGraph.clearCross();
@@ -359,7 +360,9 @@ function crossEdgeOpacity(opacity){
     for (var edge in crossEdges)
     {
       var edgeHTML = document.getElementById(edge);
+      var edgeWeightHTML = document.getElementById(edgeHTML.id + "EW");
       edgeHTML.style.opacity = opacity;
+      edgeWeightHTML.style.opacity = opacity;
     }
 }
 
