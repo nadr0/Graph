@@ -274,11 +274,14 @@ var Graph = Class.extend({
          return edgeData;
     },
     Prim: function(){
+        this.clearCross();
+        this.clearMST();
         var Vset = {};
         var Eset = {};
         var V = {};
         var VsetAmount = 0;
         var vertices = document.getElementsByClassName("vertex");
+        var edges = document.getElementsByClassName("edge");
         var vertexAmount = vertices.length;
 
         var currentVertex = vertices[0].id;
@@ -287,6 +290,13 @@ var Graph = Class.extend({
         for (var i = 0; i < vertices.length; i++) {
             V[vertices[i].id] = true;
         };
+
+        for (var i = 0; i < edges.length; i++) {
+            this.data.Cross[edges[i].childNodes[0].id] = true;
+            var crossEdge = document.getElementById(edges[i].childNodes[0].id);
+            crossEdge.style.stroke = "red";
+        };
+
 
         while(VsetAmount != vertexAmount){
             Vset[currentVertex] = true;
@@ -301,6 +311,8 @@ var Graph = Class.extend({
             if(edge){
                 edge.style.stroke = "green";
                 Eset[edge.id] = true;
+                this.data.MST[edge.id] = true;
+                delete this.data.Cross[edge.id];
                 VsetAmount++;
                 currentVertex = lowestEdge.vertex;
             }else{
@@ -326,8 +338,11 @@ var Graph = Class.extend({
                 }
                 lastEdgeHTML.style.stroke = "green";
                 Eset[lastEdgeHTML.id] = true;
+                this.data.MST[lastEdgeHTML.id] = true;
+                delete this.data.Cross[lastEdgeHTML.id];
             }
         }
+        updateData(this.data);
     }
 
 });

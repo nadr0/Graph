@@ -134,7 +134,7 @@ body{
 	text-shadow: 1px 1px 1px #000;
 	border-radius: 5px;
 	left: 125px;
-	top: 350px;
+	top: 395px;
 }
 
 #resetEdges:hover{
@@ -155,7 +155,7 @@ body{
 #MSTCheck{
 	position: absolute;
 	left: 45px;
-	top: 360px;
+	top: 405px;
 }
 
 #MSTText{
@@ -164,11 +164,36 @@ body{
 	font-weight: 400;
 	color : #ecf0f1;
 	left: 70px;
-	top: 360px;
+	top: 405px;
 	text-shadow: 1px 1px 1px #000;
 }
 
+#discoveryEdge{
+	position: relative;
+	top: 45px;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+	color : #2ecc71;
+	text-align: center;
+	text-shadow: 1px 1px 1px #000;
+}
+
+#crossbackEdge{	
+	position: relative;
+	top: 55px;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 400;
+	color : #e74c3c;
+	text-align: center;
+	text-shadow: 1px 1px 1px #000;
+}
+
+
 #kruskal{
+	top: 0px;
+}
+
+#prims{
 	top: 0px;
 }
 
@@ -339,25 +364,6 @@ body{
 	left: 100px;
 	text-shadow: 1px 1px 1px #000;
 	top: -25px;
-}
-#discoveryEdge{
-	position: relative;
-	top: 55px;
-	font-family: 'Alegreya Sans SC';
-	font-weight: 400;
-	color : #2ecc71;
-	text-align: center;
-	text-shadow: 1px 1px 1px #000;
-}
-
-#crossbackEdge{	
-	position: relative;
-	top: 65px;
-	font-family: 'Alegreya Sans SC';
-	font-weight: 400;
-	color : #e74c3c;
-	text-align: center;
-	text-shadow: 1px 1px 1px #000;
 }
 
 .button{

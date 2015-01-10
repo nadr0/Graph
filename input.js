@@ -140,9 +140,6 @@ function Kruskal(){
 
 function Prim(){
 	var newGraph = new Graph(retrieveData());
-	var button = document.getElementById("PriminputField").childNodes[1];
-	var vertex = button.value;
-
 	newGraph.Prim();
 }
 
