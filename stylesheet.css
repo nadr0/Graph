@@ -155,7 +155,7 @@ body{
 #MSTCheck{
 	position: absolute;
 	left: 45px;
-	top: 350px;
+	top: 360px;
 }
 
 #MSTText{
@@ -164,12 +164,12 @@ body{
 	font-weight: 400;
 	color : #ecf0f1;
 	left: 70px;
-	top: 350px;
+	top: 360px;
 	text-shadow: 1px 1px 1px #000;
 }
 
 #kruskal{
-	top: 25px;
+	top: 0px;
 }
 
 #ui{
@@ -189,8 +189,9 @@ body{
 #creation{
 	display: inline;
 	width:225px;
-	height: 375px;
+	height: 400px;
 	position: absolute;
+	top: 25px;
 
 }
 
@@ -199,6 +200,7 @@ body{
 	position: absolute;
 	width:225px;
 	height:400px;
+	top: 25px;
 }
 
 #functionTab{
@@ -303,6 +305,7 @@ body{
 	border: 2px solid;
 	border-color: #bdc3c7;
 	left:  100px;
+	top: -25px;
 }
 
 .inputField{
@@ -335,6 +338,7 @@ body{
 	color : #ecf0f1;
 	left: 100px;
 	text-shadow: 1px 1px 1px #000;
+	top: -25px;
 }
 #discoveryEdge{
 	position: relative;
@@ -382,7 +386,7 @@ body{
 
 #HTMLButton{
 	position: relative;
-	top: 55px;
+	top: 30px;
 	left: 25px;
 }
 

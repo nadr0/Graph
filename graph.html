@@ -13,7 +13,7 @@
 
 	<div id="ui">
 		<button class="active" id="functionTab" type="button" onclick="switchUI(this)" > <div>Creation</div> </button>
-		
+
 		<div id="fill1"></div>
 		<div id="fill2"></div>
 		<div id="fill3"></div>
@@ -56,6 +56,12 @@
 				<input type="text" value="" class="inputField">
 			</div>
 
+			<button class="button" id="HTMLButton" type="button" onclick="Prim()" ></button>
+			<div class="text">Prim's</div>
+			<div class="inputFieldDiv" id="PriminputField">
+				<input type="text" value="" class="inputField">
+			</div>
+
 			<button class="button" id="HTMLButton" type="button" onclick="Kruskal()" ></button>
 			<div class="text" id="kruskal">Kruskal</div>
 
@@ -72,15 +78,48 @@
 	<script>
 	keyBoardInit(event);
 	var UI = document.getElementById("ui");
-	// dragDiv(event,UI);
 	var myGraph = new Graph(graphStructure);
 	myGraph.insertVertex("w");
+	myGraph.insertVertex("a");
+	myGraph.insertVertex("b");
+	myGraph.insertVertex("c");
+	myGraph.insertVertex("d");
+	myGraph.insertVertex("e");
+	myGraph.insertVertex("f");
 	myGraph.insertEdge("w","v");
 	myGraph.insertEdge("w","u");
+	
+	myGraph.insertEdge("v","b");
+	myGraph.setEdgeWeight("v", "b", 3);
+	myGraph.insertEdge("b","e");
+	myGraph.setEdgeWeight("b", "e", 3);
+	myGraph.insertEdge("e","d");
+	myGraph.setEdgeWeight("e", "d", 8);
+	myGraph.insertEdge("w","e");
+	myGraph.setEdgeWeight("w", "e", 9);
+	myGraph.insertEdge("d","f");
+	myGraph.setEdgeWeight("d", "f", 4);
+	myGraph.insertEdge("w","d");
+	myGraph.setEdgeWeight("w", "d", 4);
+	myGraph.insertEdge("w","f");
+	myGraph.setEdgeWeight("w", "f", 3);
+	myGraph.insertEdge("w","c");
+	myGraph.setEdgeWeight("w", "c", 7);
+	myGraph.insertEdge("f","c");
+	myGraph.setEdgeWeight("f", "c", 2);
+	myGraph.insertEdge("c","b");
+	myGraph.setEdgeWeight("c", "b", 1);
+	myGraph.insertEdge("a","b");
+	myGraph.setEdgeWeight("a", "b", 4);
+	myGraph.insertEdge("a","c");
+	myGraph.setEdgeWeight("a", "c", 5);
+	myGraph.insertEdge("a","u");
+	myGraph.setEdgeWeight("a", "u", 3);
+
+
 	myGraph.setEdgeWeight("w", "v", 10);
 	myGraph.setEdgeWeight("w", "u", 1);
 	createHTMLGraph(myGraph);
-	// myGraph.Prim("v");
 	</script>
 
 </body 

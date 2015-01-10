@@ -252,49 +252,82 @@ var Graph = Class.extend({
         this.data.Cross[lastEdge.id] = true;
         updateData(this.data);
     },
-    Prim: function(vertex){
-        var vertexAmount = document.getElementsByClassName("vertex").length;
-        var x = vertex;
-        var VnewAmount = 0;
-        var Vnew = {};
-        var Enew = {};
-
-        Vnew[x] = true;
-        VnewAmount++;
-
-        while(VnewAmount != vertexAmount){
-            var adjVertices = this.adjcentVertices(x);
-            var possibleVertices = [];
-            for (var i = 0; i < adjVertices.length; i++) {
-                if(!Vnew[adjVertices[i]]){
-                    possibleVertices.push(adjVertices[i]);
+    lowestEdgeWeight: function(vertex, Vset){
+         var adjVertices = this.adjcentVertices(vertex);
+         var lowestEdge;
+         var lowestVertex;
+         var lowestWeight = "infinity";
+         for (var i = 0; i < adjVertices.length; i++) {
+            if(!Vset[adjVertices[i]]){
+                if(lowestWeight === "infinity" ||this.data[vertex].edgeweight[adjVertices[i]] < lowestWeight){
+                    lowestVertex = adjVertices[i];
+                    lowestEdge = vertex + adjVertices[i];
+                    lowestWeight = this.data[vertex].edgeweight[adjVertices[i]];
                 }
-            };
-
-            var lowestEdge = x + "," + possibleVertices[0];
-            var lowestVertex = possibleVertices[0];
-            var lowestWeight = this.data[x].edgeweight[lowestVertex];
-            for (var i = 1; i < possibleVertices.length; i++) {
-                if(this.data[x].edgeweight[possibleVertices[i]] < lowestWeight){
-                    lowestEdge = x + "," + possibleVertices[i];
-                    lowestVertex = possibleVertices[i];
-                    lowestWeight = this.data[x].edgeweight[possibleVertices[i]];
-                }
-            };
-
-            if(document.getElementById(x + lowestVertex)){
-              var edge = document.getElementById(x + lowestVertex);
-            }else{
-              var edge = document.getElementById(lowestVertex + x);
             }
+         };
+         Vset[lowestVertex] = true;
+         var edgeData = {};
+         edgeData["edge"] = lowestEdge;
+         edgeData["vertex"] = lowestVertex;
+         edgeData["weight"] = lowestWeight;
+         return edgeData;
+    },
+    Prim: function(){
+        var Vset = {};
+        var Eset = {};
+        var V = {};
+        var VsetAmount = 0;
+        var vertices = document.getElementsByClassName("vertex");
+        var vertexAmount = vertices.length;
 
-            Vnew[lowestVertex] = true;
-            Enew[edge.id] = true;
-            VnewAmount++;
-            x = lowestVertex;
+        var currentVertex = vertices[0].id;
+        Vset[currentVertex] = true;
+        VsetAmount++;
+        for (var i = 0; i < vertices.length; i++) {
+            V[vertices[i].id] = true;
+        };
+
+        while(VsetAmount != vertexAmount){
+            Vset[currentVertex] = true;
+            delete V[currentVertex];
+            var lowestEdge = this.lowestEdgeWeight(currentVertex,Vset);
+
+            if(document.getElementById(currentVertex + lowestEdge.vertex)){
+              var edge = document.getElementById(currentVertex + lowestEdge.vertex);
+            }else{
+              var edge = document.getElementById(lowestEdge.vertex + currentVertex);
+            }
+            if(edge){
+                edge.style.stroke = "green";
+                Eset[edge.id] = true;
+                VsetAmount++;
+                currentVertex = lowestEdge.vertex;
+            }else{
+                VsetAmount++;
+                currentVertex = this.firstObject(V);
+                delete V[currentVertex];
+                var lastVertexAdj = this.adjcentVertices(currentVertex);
+                var lastVertexWeight = "infinity";
+                var lastEdge;
+                var lastVertex;
+                for (var i = 0; i < lastVertexAdj.length; i++) {
+                    if(lastVertexWeight === "infinity" ||this.data[currentVertex].edgeweight[lastVertexAdj[i]] < lastVertexWeight){
+                        lastVertex = lastVertexAdj[i];
+                        lastEdge = currentVertex + lastVertexAdj[i];
+                        lastVertexWeight = this.data[currentVertex].edgeweight[lastVertexAdj[i]];
+                    }
+                };
+
+                if(document.getElementById(currentVertex + lastVertex)){
+                  var lastEdgeHTML = document.getElementById(currentVertex + lastVertex);
+                }else{
+                  var lastEdgeHTML = document.getElementById(lastVertex + currentVertex);
+                }
+                lastEdgeHTML.style.stroke = "green";
+                Eset[lastEdgeHTML.id] = true;
+            }
         }
-
-        console.log(Enew);
     }
 
 });

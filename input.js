@@ -90,6 +90,8 @@ function keyBoardInit(event){
 				BFS();
 			}else if(document.activeElement.parentNode.id === "DFSinputField"){
 				DFS();
+			}else if(document.activeElement.parentNode.id === "PriminputField"){
+				Prim();
 			}
 		}
 	},false);
@@ -134,4 +136,58 @@ function showMST(checkBox){
 function Kruskal(){
 	var newGraph = new Graph(retrieveData());
 	newGraph.Kruskal();
+}
+
+function Prim(){
+	var newGraph = new Graph(retrieveData());
+	var button = document.getElementById("PriminputField").childNodes[1];
+	var vertex = button.value;
+
+	newGraph.Prim();
+}
+
+function switchUI(div){
+  var creationDiv = document.getElementById("creation");
+  var algorithms = document.getElementById("algorithms");
+  var creationTab = document.getElementById("creationTab");
+  var functionTab = document.getElementById("functionTab");
+
+  var fill1 = document.getElementById("fill1");
+  var fill2 = document.getElementById("fill2");
+  var fill3 = document.getElementById("fill3");
+  var fill4 = document.getElementById("fill4");
+
+  var ui = document.getElementById("ui");
+
+  if(div.id === "functionTab"){
+
+  	ui.style.height = "400px";
+
+    fill1.style.display  = "inline";
+    fill2.style.display = "none";
+    fill3.style.display = "inline";
+    fill4.style.display = "none";
+
+    functionTab.className = "active";
+    creationTab.className = "inactive";
+
+    algorithms.style.display = "none";
+    creationDiv.style.display = "inline";
+
+  }else if(div.id === "creationTab"){
+
+  	ui.style.height = "480px";
+
+    fill1.style.display  = "none";
+    fill2.style.display = "inline";
+    fill3.style.display = "none";
+    fill4.style.display = "inline";
+
+    functionTab.className = "inactive";
+    creationTab.className = "active";
+
+    creationDiv.style.display = "none";
+    algorithms.style.display = "inline";
+
+  }
 }
