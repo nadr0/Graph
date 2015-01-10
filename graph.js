@@ -251,6 +251,50 @@ var Graph = Class.extend({
         lastEdge.style.stroke = "red";
         this.data.Cross[lastEdge.id] = true;
         updateData(this.data);
+    },
+    Prim: function(vertex){
+        var vertexAmount = document.getElementsByClassName("vertex").length;
+        var x = vertex;
+        var VnewAmount = 0;
+        var Vnew = {};
+        var Enew = {};
+
+        Vnew[x] = true;
+        VnewAmount++;
+
+        while(VnewAmount != vertexAmount){
+            var adjVertices = this.adjcentVertices(x);
+            var possibleVertices = [];
+            for (var i = 0; i < adjVertices.length; i++) {
+                if(!Vnew[adjVertices[i]]){
+                    possibleVertices.push(adjVertices[i]);
+                }
+            };
+
+            var lowestEdge = x + "," + possibleVertices[0];
+            var lowestVertex = possibleVertices[0];
+            var lowestWeight = this.data[x].edgeweight[lowestVertex];
+            for (var i = 1; i < possibleVertices.length; i++) {
+                if(this.data[x].edgeweight[possibleVertices[i]] < lowestWeight){
+                    lowestEdge = x + "," + possibleVertices[i];
+                    lowestVertex = possibleVertices[i];
+                    lowestWeight = this.data[x].edgeweight[possibleVertices[i]];
+                }
+            };
+
+            if(document.getElementById(x + lowestVertex)){
+              var edge = document.getElementById(x + lowestVertex);
+            }else{
+              var edge = document.getElementById(lowestVertex + x);
+            }
+
+            Vnew[lowestVertex] = true;
+            Enew[edge.id] = true;
+            VnewAmount++;
+            x = lowestVertex;
+        }
+
+        console.log(Enew);
     }
 
 });
