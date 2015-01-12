@@ -170,10 +170,13 @@ function switchUI(div){
 
     algorithms.style.display = "none";
     creationDiv.style.display = "inline";
+    functionTab.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
+    creationTab.style.backgroundColor = "rgba(0, 0, 0, 0.0)";
 
   }else if(div.id === "creationTab"){
 
   	ui.style.height = "480px";
+
 
     fill1.style.display  = "none";
     fill2.style.display = "inline";
@@ -185,6 +188,8 @@ function switchUI(div){
 
     creationDiv.style.display = "none";
     algorithms.style.display = "inline";
+    creationTab.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
+    functionTab.style.backgroundColor = "rgba(0, 0, 0, 0.0)";
 
   }
 }

@@ -214,9 +214,12 @@ body{
 #creation{
 	display: inline;
 	width:225px;
-	height: 400px;
+	height: 375px;
 	position: absolute;
+	border-bottom-left-radius: 5%;
+	border-bottom-right-radius: 5%;
 	top: 25px;
+	background-color: rgba(0, 0, 0, 0.3);
 
 }
 
@@ -224,8 +227,11 @@ body{
 	display: none;
 	position: absolute;
 	width:225px;
-	height:400px;
+	height:455px;
 	top: 25px;
+	border-bottom-left-radius: 5%;
+	border-bottom-right-radius: 5%;
+	background-color: rgba(0, 0, 0, 0.3);
 }
 
 #functionTab{
@@ -234,7 +240,7 @@ body{
 	height: 25px;
 	left: 25px;
 	outline: none;
-	background-color: rgba(0, 0, 0, 0.0);
+	background-color: rgba(0, 0, 0, 0.3);
 	z-index: 6;
 }
 
@@ -259,9 +265,9 @@ body{
 	border-top: 1px solid;
 	border-left: 1px solid;
 	border-right: 1px solid;
-	border-top-color: #141414;
-	border-left-color:  #141414;
-	border-right-color:  #141414;
+	border-top-color: #bdc3c7;
+	border-left-color:  #bdc3c7;
+	border-right-color:  #bdc3c7;
 	border-bottom: 0px;
 }
 
@@ -276,14 +282,18 @@ body{
 	border-top: 0px solid;
 	border-left: 0px solid;
 	border-right: 0px solid;
-	border-top-color: #141414;
-	border-left-color:  #141414;
-	border-right-color:  #141414;
+	border-top-color: #bdc3c7;
+	border-left-color:  #bdc3c7;
+	border-right-color:  #bdc3c7;
 	border-bottom: 0px;
 }
 
 .inactive:hover{
 	text-shadow: 1px 1px 1px #000;
+}
+
+.linez{
+	background-color: #bdc3c7;
 }
 
 #fill1{
@@ -292,13 +302,11 @@ body{
 	width: 25px;
 	height: 1px;
 	top: 24px;
-	background-color: #141414;
 }
 #fill2{
 	display: none;
 	position: absolute;
 	height: 1px;
-	background-color: #141414;
 	left: 0px;
 	width: 112.5px;
 	top: 24px;
@@ -310,7 +318,6 @@ body{
 	left: 112.5px;
 	height: 1px;
 	top: 24px;
-	background-color: #141414;
 }
 #fill4{
 	display: none;
@@ -318,7 +325,6 @@ body{
 	left: 200px;
 	width: 25px;
 	height: 1px;
-	background-color: #141414;
 	top: 24px;
 }
 
