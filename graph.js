@@ -260,13 +260,18 @@ var Graph = Class.extend({
             edge["dest"] = adjVertices[i];
             edge["weight"] = this.data[vertex].edgeweight[adjVertices[i]];
             edge["edge"] = vertex + adjVertices[i]; 
+
             PQ.insert(edge);
         };
     },
     Prim: function(){
+        this.clearMST();
+        this.clearCross();
         var PQ = new minHeap();
         var V = {};
         var E = {};
+        var cross = {};
+        var edges = document.getElementsByClassName("edge");
         var vertices = document.getElementsByClassName("vertex");
         var vertexLength = vertices.length;
         var startingVertex = vertices[0].id;
@@ -274,7 +279,12 @@ var Graph = Class.extend({
         this.AddEdgesToPQ(startingVertex, PQ);
         var vertexCounter = 0;
         vertexCounter++;
-        
+
+        for (var i = 0; i < edges.length; i++) {
+            this.data.Cross[edges[i].childNodes[0].id] = true;
+            edges[i].style.stroke = "red";
+        };
+
         while(vertexCounter != vertexLength){
             var lowestEdge = PQ.removeMin();
             while(V[lowestEdge.dest]){
@@ -290,8 +300,11 @@ var Graph = Class.extend({
             V[lowestEdge.dest] = true;
             this.AddEdgesToPQ(lowestEdge.dest, PQ);
             edgeHTML.style.stroke = "green";
+            delete this.data.Cross[edgeHTML.id];
+            this.data.MST[edgeHTML.id] = true;
             vertexCounter++;
         }
+        updateData(this.data);
     }
 
 });
