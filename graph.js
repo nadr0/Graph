@@ -282,7 +282,6 @@ var Graph = Class.extend({
 
         for (var i = 0; i < edges.length; i++) {
             this.data.Cross[edges[i].childNodes[0].id] = true;
-            edges[i].style.stroke = "red";
         };
 
         while(vertexCounter != vertexLength){
@@ -304,6 +303,13 @@ var Graph = Class.extend({
             this.data.MST[edgeHTML.id] = true;
             vertexCounter++;
         }
+
+        for( crossEdge in this.data.Cross){
+            console.log(crossEdge);
+            var crossEdgeHTML = document.getElementById(crossEdge);
+            crossEdgeHTML.style.stroke = "red";
+        }
+
         updateData(this.data);
     }
 
