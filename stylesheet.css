@@ -257,6 +257,7 @@ body{
 .active{
 	font-family: 'Alegreya Sans SC';
 	font-weight: 400;
+	font-size: 0.9em;
 	color : #ecf0f1;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -274,6 +275,7 @@ body{
 .inactive{
 	font-family: 'Alegreya Sans SC';
 	font-weight: 400;
+	font-size: 0.9em;
 	color : #ecf0f1;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -333,7 +335,7 @@ body{
 	width: 100px;
 	height:  35px;
 	border-radius: 6px;
-	border: 2px solid;
+	border: 3px solid;
 	border-color: #bdc3c7;
 	left:  100px;
 	top: -25px;
@@ -357,11 +359,11 @@ body{
 }
 
 .inputFieldDiv:hover{
-	border-color: gray;
-	-webkit-transition: border-color  0.5s;
-	-moz-transition: border-color 0.5s;
-	-o-transition: border-color  0.5s;
-	transition: border-color  0.5s;
+	border-color: #7f8c8d;
+	-webkit-transition: border-color  0.2s;
+	-moz-transition: border-color 0.2s;
+	-o-transition: border-color  0.2s;
+	transition: border-color  0.2s;
 }
 
 .text{
