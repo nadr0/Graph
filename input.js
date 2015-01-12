@@ -3,10 +3,15 @@ function addVertex(){
 	var newGraph = new Graph(retrieveData());
 	var vertex = button.value;
 	if(!newGraph.data[vertex] && vertex != ""){
+		success(button.parentNode)
+		// button.parentNode.style.borderColor = "green";
 		newGraph.insertVertex(vertex);
 		addVertexToHTMLGraph(vertex);
+	}else{
+		retry(button.parentNode);
 	}
 	button.value = "";
+	setTimeout(function(){ button.parentNode.style.borderColor = "gray"}, 2000);
 }
 
 function removeVertex(){
@@ -14,6 +19,7 @@ function removeVertex(){
 	var newGraph = new Graph(retrieveData());
 	var vertex = button.value;
 	if(newGraph.data[vertex]){
+		success(button.parentNode);
 		var adjvertices = newGraph.adjcentVertices(vertex);
 		  for (var i = 0; i < adjvertices.length; i++) {
 		    if(document.getElementById(vertex + adjvertices[i])){
@@ -29,8 +35,11 @@ function removeVertex(){
 		var vertexHTML = document.getElementById(vertex);
 		vertexHTML.parentNode.removeChild(vertexHTML);
 
+	}else{
+		retry(button.parentNode);
 	}
 	button.value = "";
+	setTimeout(function(){ button.parentNode.style.borderColor = "gray"}, 2000);
 
 }
 
@@ -45,12 +54,29 @@ function addEdge(){
 	if(vertices[2]){
 		weight = parseInt(vertices[2],10);
 	}
-	if(edge != ""){
+	if(edge != ""&& v && u && vertices[2] != "weight"){
+		success(button.parentNode);
 		newGraph.insertEdge(v.innerHTML,u.innerHTML);
 		newGraph.setEdgeWeight(v.innerHTML, u.innerHTML, weight);
 		createEdge(v,u);
+		if(document.getElementById(v.innerHTML + u.innerHTML + "EW")){
+			var edgeWeightHTML = document.getElementById(v.innerHTML + u.innerHTML + "EW");
+		}else{
+			var edgeWeightHTML = document.getElementById(u.innerHTML + v.innerHTML + "EW");
+		}
+		edgeWeightHTML.innerHTML = weight;
+		var data = retrieveData();
+		if(data.Edges[u.innerHTML + v.innerHTML]){
+			data.Edges[u.innerHTML + v.innerHTML].weight = weight;
+		}else{
+			data.Edges[v.innerHTML + u.innerHTML].weight = weight;
+		}
+		updateData(data);
+	}else{
+		retry(button.parentNode);
 	}
 	button.value = "";
+	setTimeout(function(){ button.parentNode.style.borderColor = "gray"}, 2000);
 }
 
 function removeEdge(){
@@ -61,7 +87,8 @@ function removeEdge(){
 	var v = document.getElementById(vertices[0]);
 	var u =  document.getElementById(vertices[1]);
 
-	if(edge != ""){
+	if(v && u){
+		success(button.parentNode);
 		if(document.getElementById(v.innerHTML + u.innerHTML)){
 			var edgeHTML = document.getElementById(v.innerHTML + u.innerHTML);
 		}else{
@@ -71,8 +98,11 @@ function removeEdge(){
 		edgeWeightHTML.parentNode.removeChild(edgeWeightHTML);
 		edgeHTML.parentNode.parentNode.removeChild(edgeHTML.parentNode);
 		newGraph.deleteEdge(v.innerHTML, u.innerHTML);
+	}else{
+		retry(button.parentNode);
 	}
 	button.value = "";
+	setTimeout(function(){ button.parentNode.style.borderColor = "gray"}, 2000);
 }
 
 function keyBoardInit(event){
@@ -97,17 +127,35 @@ function keyBoardInit(event){
 	},false);
 }
 
+function success(div){
+	div.style.borderColor = "#27ae60";
+}
+
+function retry(div){
+	div.style.borderColor = "#c0392b";
+}
+
+function reset(div) {
+	console.log("2quik");
+	div.style.borderColor = "gray";
+}
+
+
 function BFS(){
 	var button = document.getElementById("BFSinputField").childNodes[1];
 	var newGraph = new Graph(retrieveData());
 	var vertex = button.value;
 	if(vertex != ""){
+		success(button.parentNode);
 		newGraph.BFS(vertex);
 		mstEdgeOpacity("1.0");
 		var checkbox = document.getElementById("MSTCheck");
 		showMST(checkbox);
+	}else{
+		retry(button.parentNode);
 	}
 	button.value = "";
+	setTimeout(function(){ button.parentNode.style.borderColor = "gray"}, 2000);
 }
 
 function DFS(){
@@ -115,14 +163,18 @@ function DFS(){
 	var newGraph = new Graph(retrieveData());
 	var vertex = button.value;
 	if(vertex != ""){
+		success(button.parentNode);
     	newGraph.clearMST();
     	newGraph.clearCross();
 		newGraph.DFS(vertex);
 		mstEdgeOpacity("1.0");
 		var checkbox = document.getElementById("MSTCheck");
 		showMST(checkbox);
+	}else{
+		retry(button.parentNode);
 	}
 	button.value = "";
+	setTimeout(function(){ button.parentNode.style.borderColor = "gray"}, 2000);
 }
 
 function showMST(checkBox){

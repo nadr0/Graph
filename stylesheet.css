@@ -357,7 +357,7 @@ body{
 }
 
 .inputFieldDiv:hover{
-	border-color: #7f8c8d;
+	border-color: gray;
 	-webkit-transition: border-color  0.5s;
 	-moz-transition: border-color 0.5s;
 	-o-transition: border-color  0.5s;
