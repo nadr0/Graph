@@ -145,7 +145,7 @@ function BFS(){
 	var button = document.getElementById("BFSinputField").childNodes[1];
 	var newGraph = new Graph(retrieveData());
 	var vertex = button.value;
-	if(vertex != ""){
+	if(vertex != "" && newGraph.data[vertex]){
 		success(button.parentNode);
 		newGraph.BFS(vertex);
 		mstEdgeOpacity("1.0");
@@ -162,7 +162,7 @@ function DFS(){
 	var button = document.getElementById("DFSinputField").childNodes[1];
 	var newGraph = new Graph(retrieveData());
 	var vertex = button.value;
-	if(vertex != ""){
+	if(vertex != "" && newGraph.data[vertex]){
 		success(button.parentNode);
     	newGraph.clearMST();
     	newGraph.clearCross();
