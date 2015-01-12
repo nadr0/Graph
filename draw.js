@@ -75,6 +75,15 @@ function create(htmlStr) {
   return frag;
 }
 
+
+function inputFieldClear(event, div){
+  // Mouse down event listener
+  div.addEventListener("mousedown", function( event ) {   
+    div.value = "";
+    div.style.color = "rgba(0, 0, 0, 1.0)";
+  }, false);
+};
+
 /** 
  * Takes the JSON graph data and turns it into the HTML div's
  * @param {graph} graph

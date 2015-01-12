@@ -25,22 +25,22 @@
 			<button  class="button" id="HTMLButton" type="button" onclick="addVertex()" ></button>
 			<div class="text">Add Vertex</div>
 			<div class="inputFieldDiv" id="AddVertexField">
-				<input type="text" value="" class="inputField">
+				<input type="text" value="a" class="inputField">
 			</div>
 			<button class="button" id="HTMLButton" type="button" onclick="removeVertex()" ></button>
 			<div class="text">Remove Vertex</div>
 			<div class="inputFieldDiv" id="RemoveVertexField">
-				<input type="text" value="" class="inputField">
+				<input type="text" value="b" class="inputField">
 			</div>
 			<button class="button" id="HTMLButton" type="button" onclick="addEdge()" ></button>
 			<div class="text">Add Edge</div>
 			<div class="inputFieldDiv" id="AddEdgeField">
-				<input type="text" value="" class="inputField">
+				<input type="text" value="a,b,weight" class="inputField">
 			</div>
 			<button class="button" id="HTMLButton" type="button" onclick="removeEdge()" ></button>
 			<div class="text">Remove Edge</div>
 			<div class="inputFieldDiv" id="RemoveEdgeField">
-				<input type="text" value="" class="inputField">
+				<input type="text" value="a,b" class="inputField">
 			</div>
 		</div>
 		<button class="inactive" id="creationTab" type="button" onclick="switchUI(this)" > <div>Traversal</div> </button>
@@ -49,12 +49,12 @@
 			<button  class="button" id="HTMLButton" type="button" onclick="BFS()" ></button>
 			<div class="text">BFS</div>
 			<div class="inputFieldDiv" id="BFSinputField">
-				<input type="text" value="" class="inputField">
+				<input type="text" value="a" class="inputField">
 			</div>
 			<button class="button" id="HTMLButton" type="button" onclick="DFS()" ></button>
 			<div class="text">DFS</div>
 			<div class="inputFieldDiv" id="DFSinputField">
-				<input type="text" value="" class="inputField">
+				<input type="text" value="b" class="inputField">
 			</div>
 
 			<button class="button" id="HTMLButton" type="button" onclick="Prim()" ></button>
@@ -75,6 +75,10 @@
 
 	<script>
 	keyBoardInit(event);
+	var inputFields = document.getElementsByClassName("inputField");
+	for(var i = 0; i < inputFields.length; i++){
+		inputFieldClear(event,inputFields[i]);
+	}
 	var UI = document.getElementById("ui");
 	var myGraph = new Graph(graphStructure);
 	myGraph.insertVertex("w");
