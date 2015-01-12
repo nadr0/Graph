@@ -251,6 +251,47 @@ var Graph = Class.extend({
         lastEdge.style.stroke = "red";
         this.data.Cross[lastEdge.id] = true;
         updateData(this.data);
+    },
+    AddEdgesToPQ: function(vertex, PQ){
+        var adjVertices = this.adjcentVertices(vertex);
+        for (var i = 0; i < adjVertices.length; i++) {
+            var edge = {};
+            edge["source"] = vertex;
+            edge["dest"] = adjVertices[i];
+            edge["weight"] = this.data[vertex].edgeweight[adjVertices[i]];
+            edge["edge"] = vertex + adjVertices[i]; 
+            PQ.insert(edge);
+        };
+    },
+    Prim: function(){
+        var PQ = new minHeap();
+        var V = {};
+        var E = {};
+        var vertices = document.getElementsByClassName("vertex");
+        var vertexLength = vertices.length;
+        var startingVertex = vertices[0].id;
+        V[startingVertex] = true;
+        this.AddEdgesToPQ(startingVertex, PQ);
+        var vertexCounter = 0;
+        vertexCounter++;
+        
+        while(vertexCounter != vertexLength){
+            var lowestEdge = PQ.removeMin();
+            while(V[lowestEdge.dest]){
+                lowestEdge = PQ.removeMin();
+            }
+            if(document.getElementById(lowestEdge.source + lowestEdge.dest)){
+              var edgeHTML = document.getElementById(lowestEdge.source + lowestEdge.dest);
+            }else{
+              var edgeHTML = document.getElementById(lowestEdge.dest + lowestEdge.source);
+            }
+
+            E[edgeHTML.id] = true;
+            V[lowestEdge.dest] = true;
+            this.AddEdgesToPQ(lowestEdge.dest, PQ);
+            edgeHTML.style.stroke = "green";
+            vertexCounter++;
+        }
     }
 
 });
