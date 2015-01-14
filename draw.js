@@ -343,5 +343,29 @@ function mstEdgeOpacity(opacity){
       edgeHTML.style.opacity = opacity;
     }
 }
+ 
+function success(div,alpha){ 
+    if(alpha < 0.6){
+        alpha += 0.15;
+        setTimeout( function(){
+            div.style.backgroundColor = "rgba(46, 204, 113,"+alpha+")";     
+            success(div,alpha);           
+        }, 55);
+    }
+}
 
+function retry(div,alpha){
+    if(alpha < 0.6){
+        alpha += 0.15;
+        setTimeout( function(){
+            div.style.backgroundColor = "rgba(192, 57, 43,"+alpha+")";     
+            retry(div,alpha) ;          
+        }, 55);
+    }
+}
 
+function reset(div){
+    setTimeout( function(){
+        div.style.backgroundColor = "#ecf0f1";
+    }, 2000);
+}
