@@ -181,7 +181,7 @@ function Prim(){
 	var vertex = button.value;
 	if(vertex != "" && newGraph.data[vertex]){
     	success(button, 0.0);
-    	newGraph.Prim();
+    	newGraph.Prim(vertex);
 	}else{
 		retry(button, 0.0);
 	}

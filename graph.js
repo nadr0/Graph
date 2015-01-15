@@ -264,7 +264,7 @@ var Graph = Class.extend({
             PQ.insert(edge);
         };
     },
-    Prim: function(){
+    Prim: function(vertex){
         this.clearMST();
         this.clearCross();
         var PQ = new minHeap();
@@ -274,7 +274,7 @@ var Graph = Class.extend({
         var edges = document.getElementsByClassName("edge");
         var vertices = document.getElementsByClassName("vertex");
         var vertexLength = vertices.length;
-        var startingVertex = vertices[0].id;
+        var startingVertex = vertex
         V[startingVertex] = true;
         this.AddEdgesToPQ(startingVertex, PQ);
         var vertexCounter = 0;

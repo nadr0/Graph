@@ -48,11 +48,11 @@ body{
 #dragMe{
 	position: absolute;
 	left: 75px;
-	top: 25px;
+	top: 40px;
 	font-family: 'Alegreya Sans SC';
 	font-weight: 400;
 	color : white;
-	font-size: 1.5em;
+	font-size: 2.0em;
 	text-shadow: 1px 1px 1px #000;
 }
 .vertex{
@@ -130,7 +130,7 @@ body{
 	color : #ecf0f1;
 	outline: none;
 	border: 2px solid #95a5a6;
-	background-color: rgba(255, 255, 255, 0.0);
+	background-color: #95a5a6;
 	text-shadow: 1px 1px 1px #000;
 	border-radius: 5px;
 	left: 125px;
@@ -139,23 +139,21 @@ body{
 
 #resetEdges:hover{
  	background: #95a5a6;
-	-webkit-transition: background-color  1s;
-	-moz-transition: background-color 1s;
-	-o-transition: background-color  1s;
-	transition: background-color  1s;
+	
 }
 
 #resetEdges:active{
  	transition: all 0.1s ease-in-out;
- 	-ms-transform: scale(1.2,1.2); 
-	-webkit-transform: scale(1.2,1.2);
-	transform: scale(1.2,1.2);
+ 	-ms-transform: scale(0.8,0.8); 
+	-webkit-transform: scale(0.8,0.8);
+	transform: scale(0.8,0.8);
 }
 
 #MSTCheck{
 	position: absolute;
 	left: 45px;
 	top: 450px;
+
 }
 
 #MSTText{
@@ -393,9 +391,9 @@ body{
 
 .button:active{
  	transition: all 0.1s ease-in-out;
- 	-ms-transform: scale(1.5,1.5); 
-	-webkit-transform: scale(1.5,1.5);
-	transform: scale(1.5,1.5);
+ 	-ms-transform: scale(0.5,0.5); 
+	-webkit-transform: scale(0.5,0.5);
+	transform: scale(0.5,0.5);
 }
 
 #HTMLButton{
