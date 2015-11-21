@@ -218,7 +218,7 @@ var Graph = Class.extend({
 
         set.addElements(vertices.length);
 
-        for(var i = 0; i < edges.length - 1; i++){
+        for(var i = 0; i < edges.length; i++){
             var objI = this.firstObject(edges[i]);
 
             var vertexA = edges[i][objI].source;
@@ -233,7 +233,7 @@ var Graph = Class.extend({
               var edge = document.getElementById(vertexB + vertexA);
             }
 
-            edge.style.stroke = "red";
+            console.log(vertexA + ":" + vertexB);
 
             if(set.find(indexA) != set.find(indexB)){
                 set.setUnion(indexA,indexB);
@@ -246,10 +246,6 @@ var Graph = Class.extend({
             }
         }
 
-        var lastEdgeObj = this.firstObject(edges[edges.length-1]);
-        var lastEdge = document.getElementById(lastEdgeObj);
-        lastEdge.style.stroke = "red";
-        this.data.Cross[lastEdge.id] = true;
         updateData(this.data);
     },
     AddEdgesToPQ: function(vertex, PQ){
