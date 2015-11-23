@@ -233,8 +233,6 @@ var Graph = Class.extend({
               var edge = document.getElementById(vertexB + vertexA);
             }
 
-            console.log(vertexA + ":" + vertexB);
-
             if(set.find(indexA) != set.find(indexB)){
                 set.setUnion(indexA,indexB);
                 edge.style.stroke = "green";
@@ -301,7 +299,6 @@ var Graph = Class.extend({
         }
 
         for( crossEdge in this.data.Cross){
-            console.log(crossEdge);
             var crossEdgeHTML = document.getElementById(crossEdge);
             crossEdgeHTML.style.stroke = "red";
         }
